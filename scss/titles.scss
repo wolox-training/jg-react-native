@@ -1,0 +1,19 @@
+@import 'text';
+
+.div-title{
+  display: flex;
+  align-items: center;
+}
+
+.img-title{
+  height: 90px;
+  width: 70px;
+}
+
+.text-title{
+  font-size: $text-big;
+  font-family: $text-font;
+  position: absolute;
+  left: 53px;
+  top: 33px;
+}
