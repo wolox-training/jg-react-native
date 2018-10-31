@@ -1,0 +1,43 @@
+@import 'colors';
+@import 'text';
+
+$bor-back-tech: 0.5px solid $back-tech;
+$height: 312px;
+$width: 218px;
+$border-radius: 5px;
+
+.div-tech {
+  align-items: center;
+  display: flex;
+}
+
+.tech-fondo {
+  border: $bor-back-tech;
+  border-radius: $border-radius;
+  height: $height;
+  width: $width;
+}
+
+.tech-contenido {
+  background-color: $back-tech;
+  border-radius: $border-radius;
+  height: $height;
+  position: relative;
+  right: ($width - 8);
+  top: 8px;
+  width: $width;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.img-tech {
+  height: 100px;
+  width: 100px;
+}
+
+.tech-title {
+  font-size: $text-medium;
+}
