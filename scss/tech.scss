@@ -9,29 +9,30 @@ $border-radius: 5px;
 .div-tech {
   align-items: center;
   display: flex;
+  margin: 20px;
+  width: $width;
 }
 
-.tech-fondo {
+.tech-back {
   border: $bor-back-tech;
   border-radius: $border-radius;
   height: $height;
-  width: $width;
+  min-width: $width;
 }
 
-.tech-contenido {
+.tech-content {
+  align-items: center;
   background-color: $back-tech;
   border-radius: $border-radius;
+  display: flex;
+  flex-direction: column;
   height: $height;
+  justify-content: space-between;
+  min-width: $width;
+  padding: 10px 40px 35px 25px;
   position: relative;
   right: ($width - 8);
   top: 8px;
-  width: $width;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 40px 35px 25px;
   text-align: center;
 }
 
@@ -49,11 +50,11 @@ $border-radius: 5px;
   font-size: $text-medium;
 }
 
-.tech-release{
+.tech-release {
   font-size: $text-small;
   font-weight: bold;
 }
 
-.tech-description{
+.tech-description {
   font-size: $text-small;
 }
