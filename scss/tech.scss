@@ -30,7 +30,9 @@ $border-radius: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 10px 40px 35px 25px;
+  text-align: center;
 }
 
 .img-tech {
@@ -38,6 +40,20 @@ $border-radius: 5px;
   width: 100px;
 }
 
+.div-info-tech{
+  display: flex;
+  flex-direction: column;
+}
+
 .tech-title {
   font-size: $text-medium;
+}
+
+.tech-release{
+  font-size: $text-small;
+  font-weight: bold;
+}
+
+.tech-description{
+  font-size: $text-small;
 }
