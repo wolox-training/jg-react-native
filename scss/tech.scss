@@ -18,6 +18,10 @@ $border-radius: 5px;
   border-radius: $border-radius;
   height: $height;
   min-width: $width;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: 1s;
 }
 
 .tech-content {
@@ -32,8 +36,13 @@ $border-radius: 5px;
   padding: 10px 40px 35px 25px;
   position: relative;
   right: ($width - 8);
-  top: 8px;
   text-align: center;
+  top: 8px;
+}
+
+.div-tech:hover > .tech-back {
+  left: 15px;
+  top: 15px;
 }
 
 .img-tech {

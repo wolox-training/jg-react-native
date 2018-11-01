@@ -1,0 +1,22 @@
+@import 'text';
+@import 'colors';
+
+$box-shadow: 0 3px 10px $grey;
+
+.nav{
+  align-items: center;
+  background-color: white;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 10px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.nav-title {
+  font-size: $text-big;
+}
