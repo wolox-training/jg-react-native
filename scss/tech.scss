@@ -1,7 +1,7 @@
 @import 'colors';
 @import 'text';
 
-$bor-back-tech: 0.5px solid $back-tech;
+$bor-back-tech: 0.5px solid $green;
 $height: 312px;
 $width: 218px;
 $border-radius: 5px;
@@ -17,16 +17,16 @@ $border-radius: 5px;
   border: $bor-back-tech;
   border-radius: $border-radius;
   height: $height;
+  left: 0;
   min-width: $width;
   position: relative;
   top: 0;
-  left: 0;
   transition: 1s;
 }
 
 .tech-content {
   align-items: center;
-  background-color: $back-tech;
+  background-color: $green;
   border-radius: $border-radius;
   display: flex;
   flex-direction: column;
