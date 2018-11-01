@@ -6,16 +6,10 @@ $height: 312px;
 $width: 218px;
 $border-radius: 5px;
 
-.div-tech {
-  align-items: center;
-  display: flex;
-  margin: 20px;
-  width: $width;
-}
-
-.tech-back {
+.tech::before {
   border: $bor-back-tech;
   border-radius: $border-radius;
+  content: '';
   height: $height;
   left: 0;
   min-width: $width;
@@ -23,6 +17,14 @@ $border-radius: 5px;
   top: 0;
   transition: 1s;
 }
+
+.tech {
+  align-items: center;
+  display: flex;
+  margin: 20px;
+  width: $width;
+}
+
 
 .tech-content {
   align-items: center;
@@ -40,7 +42,7 @@ $border-radius: 5px;
   top: 8px;
 }
 
-.div-tech:hover > .tech-back {
+.tech:hover:before {
   left: 15px;
   top: 15px;
 }
@@ -50,7 +52,7 @@ $border-radius: 5px;
   width: 100px;
 }
 
-.div-info-tech {
+.info-tech {
   display: flex;
   flex-direction: column;
 }
@@ -62,6 +64,7 @@ $border-radius: 5px;
 .tech-release {
   font-size: $text-small;
   font-weight: bold;
+  padding-top: 15px;
 }
 
 .tech-description {

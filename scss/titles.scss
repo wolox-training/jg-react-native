@@ -1,18 +1,19 @@
 @import 'text';
 
-.div-title {
+.title::before {
+  background-image: url('assets/triangle.svg');
+  bottom: 5px;
+  content: '';
+  height: 90px;
+  left: 20px;
+  width: 70px;
+  position: relative;
+  z-index: -1;
+}
+
+.title {
   align-items: center;
   display: flex;
-}
-
-.img-title {
-  height: 90px;
-  width: 70px;
-}
-
-.text-title {
   font-size: $text-big;
-  position: relative;
-  right: 18px;
-  top: 4px;
+  width: 100%;
 }
