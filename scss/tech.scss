@@ -27,6 +27,32 @@ $border-radius: 5px;
   grid-row: 5/7;
 }
 
+@media only screen and (max-width: 1024px) {
+
+  .tech {
+    align-items: center;
+    border-bottom: solid 2px $green;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+  }
+
+  .tech-pr {
+    border-right: none;
+    justify-content: center;
+  }
+
+  .tech-fr {
+    grid-row: auto;
+  
+  }
+  
+  .tech-bk {
+    grid-row: auto;
+  }
+}
+
 .tech-content {
   align-items: center;
   background-color: $white;
