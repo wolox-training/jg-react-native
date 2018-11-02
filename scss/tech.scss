@@ -6,7 +6,7 @@ $height: 312px;
 $width: 218px;
 $border-radius: 5px;
 
-.tech::before {
+/*.tech::before {
   border: $bor-back-tech;
   border-radius: $border-radius;
   content: '';
@@ -16,13 +16,30 @@ $border-radius: 5px;
   position: relative;
   top: 0;
   transition: 1s;
-}
+}*/
 
 .tech {
   align-items: center;
   display: flex;
   margin: 20px;
   width: $width;
+
+  &::before {
+    border: $bor-back-tech;
+    border-radius: $border-radius;
+    content: '';
+    height: $height;
+    left: 0;
+    min-width: $width;
+    position: relative;
+    top: 0;
+    transition: 1s;
+  }
+
+  &:hover::before {
+    left: 15px;
+    top: 15px;
+  }
 }
 
 
@@ -41,11 +58,11 @@ $border-radius: 5px;
   text-align: center;
   top: 8px;
 }
-
+/*
 .tech:hover:before {
   left: 15px;
   top: 15px;
-}
+}*/
 
 .img-tech {
   height: 100px;
