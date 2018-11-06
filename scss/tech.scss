@@ -6,18 +6,14 @@ $height: 312px;
 $width: 218px;
 $border-radius: 5px;
 
-.tech {
-  align-items: center;
-  display: flex;
-  margin: 20px;
-  width: 100%;
-}
-
-.tech-pr {
-  justify-content: flex-end;
+%tech-pr {
   border-right: solid 2px $green;
+  height: 100%;
+  margin-left: 50%;
+  padding: 50% 10% 50% 0;
 }
 
+<<<<<<< HEAD
 .tech-fr {
   grid-row: 2/4;
 
@@ -54,26 +50,33 @@ $border-radius: 5px;
 }
 
 .tech-content {
+=======
+.tech {
+>>>>>>> fea-003
   align-items: center;
-  background-color: $white;
-  border-radius: $border-radius;
   display: flex;
   flex-direction: column;
   height: $height;
   justify-content: space-between;
-  width: $width;
+  margin: 20px;
   padding: 10px 40px 35px 25px;
   text-align: center;
+  width: $width;
+
+  &:nth-child(2) {
+    @extend %tech-pr;
+    grid-row: 2/4; 
+  }
+  
+  &:nth-child(8) {
+    @extend %tech-pr;
+    grid-row: 5/7;
+  }
 }
 
 .img-tech {
   height: 100px;
   width: 100px;
-}
-
-.info-tech {
-  display: flex;
-  flex-direction: column;
 }
 
 .tech-title {
