@@ -2,57 +2,26 @@
 @import 'text';
 
 $bor-back-tech: 0.5px solid $green;
-$height: 312px;
-$width: 218px;
 $border-radius: 5px;
+$height: 312px;
+$padding-mobile: 10px 10px 35px;
+$width: 218px;
 
-%tech-pr {
+@mixin tech-pr {
   border-right: solid 2px $green;
   height: 100%;
   margin-left: 50%;
   padding: 50% 10% 50% 0;
 }
 
-<<<<<<< HEAD
-.tech-fr {
-  grid-row: 2/4;
-
+@mixin tech-pr-mb {
+  border-right: none;
+  height: $height;
+  margin: 20px;
+  padding: $padding-mobile;
 }
 
-.tech-bk {
-  grid-row: 5/7;
-}
-
-@media only screen and (max-width: 1024px) {
-
-  .tech {
-    align-items: center;
-    border-bottom: solid 2px $green;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    width: 100%;
-  }
-
-  .tech-pr {
-    border-right: none;
-    justify-content: center;
-  }
-
-  .tech-fr {
-    grid-row: auto;
-  
-  }
-  
-  .tech-bk {
-    grid-row: auto;
-  }
-}
-
-.tech-content {
-=======
 .tech {
->>>>>>> fea-003
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -64,13 +33,34 @@ $border-radius: 5px;
   width: $width;
 
   &:nth-child(2) {
-    @extend %tech-pr;
+    @include tech-pr;
     grid-row: 2/4; 
   }
   
   &:nth-child(8) {
-    @extend %tech-pr;
+    @include tech-pr;
     grid-row: 5/7;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .tech {
+    border-bottom: solid 2px $green;
+    padding: $padding-mobile;
+
+    &:nth-child(2) {
+      @include tech-pr-mb;
+      grid-row: 2/3; 
+    }
+
+    &:nth-child(6), &:nth-child(11) {
+      border-bottom: none;
+    }
+    
+    &:nth-child(8) {
+      @include tech-pr-mb;
+      grid-row: 8/9;
+    }
   }
 }
 

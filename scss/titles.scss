@@ -4,8 +4,8 @@
   align-items: center;
   display: flex;
   font-size: $text-big;
-  margin-top: 20px;
   grid-column: 1/4;
+  margin-top: 20px;
 
   &::before {
     background-image: url('assets/triangle.svg');
@@ -23,5 +23,6 @@
 @media only screen and (max-width: 1024px) {
   .title {
     grid-column: 1;
+    justify-self: start;
   }
 }
