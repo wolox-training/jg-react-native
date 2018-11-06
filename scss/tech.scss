@@ -8,53 +8,39 @@ $border-radius: 5px;
 
 .tech {
   align-items: center;
-  display: flex;
-  margin: 20px;
-  width: $width;
-
-  &::before {
-    border: $bor-back-tech;
-    border-radius: $border-radius;
-    content: '';
-    height: $height;
-    left: 0;
-    min-width: $width;
-    position: relative;
-    top: 0;
-    transition: 1s;
-  }
-
-  &:hover::before {
-    left: 15px;
-    top: 15px;
-  }
-}
-
-
-.tech-content {
-  align-items: center;
   background-color: $green;
   border-radius: $border-radius;
   display: flex;
   flex-direction: column;
   height: $height;
   justify-content: space-between;
-  min-width: $width;
+  margin: 20px;
   padding: 10px 40px 35px 25px;
   position: relative;
-  right: ($width - 8);
   text-align: center;
-  top: 8px;
+  width: $width;
+
+  &::before {
+    border: $bor-back-tech;
+    border-radius: $border-radius;
+    bottom: 8px;
+    content: '';
+    height: $height;
+    position: absolute;
+    right: 8px;
+    transition: 1s;
+    width: $width;
+    z-index: -1;
+  }
+
+  &:hover::before {
+    transform: translate(16px,16px);
+  }
 }
 
 .img-tech {
   height: 100px;
   width: 100px;
-}
-
-.info-tech {
-  display: flex;
-  flex-direction: column;
 }
 
 .tech-title {
