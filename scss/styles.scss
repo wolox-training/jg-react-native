@@ -2,4 +2,9 @@
   display: grid;
   grid-template-columns:  1.5fr 1fr 1fr;
   padding: 100px;
+
+  &:first-child {
+    background-color: green;
+    //grid-row: 2/4;
+  }
 }

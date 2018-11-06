@@ -9,8 +9,13 @@ $border-radius: 5px;
 .tech {
   align-items: center;
   display: flex;
+  flex-direction: column;
+  height: $height;
+  justify-content: space-between;
   margin: 20px;
-  width: 100%;
+  padding: 10px 40px 35px 25px;
+  text-align: center;
+  width: $width;
 }
 
 .tech-pr {
