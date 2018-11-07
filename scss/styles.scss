@@ -1,3 +1,6 @@
-.title {
-  color: red;
+.main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 100px;
 }

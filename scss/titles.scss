@@ -1,0 +1,21 @@
+@import 'text';
+
+.title {
+  align-items: center;
+  display: flex;
+  font-size: $text-big;
+  margin-top: 20px;
+  width: 100%;
+
+  &::before {
+    background-image: url('assets/triangle.svg');
+    background-repeat: no-repeat;
+    bottom: 5px;
+    content: '';
+    height: 90px;
+    left: 20px;
+    position: relative;
+    width: 70px;
+    z-index: -1;
+  }
+}
