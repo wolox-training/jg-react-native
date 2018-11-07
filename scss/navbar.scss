@@ -16,14 +16,10 @@ $box-shadow: 0 3px 10px $grey;
   top: 0;
   width: 100%;
   z-index: 1;
+}
 
-  &::before {
-    background: url('assets/wolox_logo.svg');
-    background-repeat: no-repeat;
-    content: '';
-    height: 30px;
-    width: 100%;
-  }
+.img-title {
+  height: 30px;
 }
 
 .nav-title {
