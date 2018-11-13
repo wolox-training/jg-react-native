@@ -19,3 +19,9 @@ export function copy(...arg) {
   }
   return Object.assign([], arg[0]);
 }
+
+export function reverseMerge(arg1, arg2) {
+  const obj = Object.assign([], arg2);
+  obj.push(...arg1);
+  return obj;
+}
