@@ -1,7 +1,10 @@
 import isArray from './utils';
 
 export function min(arg) {
-  return isArray(arg) ? undefined : arg;
+  if (isArray(arg)) {
+    return Math.min(...arg);
+  }
+  return arg;
 }
 
 export function copy() {
