@@ -13,5 +13,6 @@ export function min(...arg) {
   return Math.min(...arg);
 }
 
-export function copy() {
+export function copy(arg) {
+  return arg;
 }
