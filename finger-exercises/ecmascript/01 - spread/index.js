@@ -13,7 +13,9 @@ export function min(...arg) {
   return Math.min(...arg);
 }
 
-export function copy(arg) {
-  const objCopy = Object.assign({}, arg);
-  return objCopy;
+export function copy(...arg) {
+  if (arg.length === 1 && !isArray(arg[0])) {
+    return Object.assign({}, arg[0]);
+  }
+  return Object.assign([], arg[0]);
 }
