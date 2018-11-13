@@ -14,6 +14,16 @@ export function delay(arg) {
   });
 }
 
-export function asyncDelay() {
-
+export function asyncDelay(arg) {
+  const time = arg;
+  return new Promise((resolve, reject) => {
+    if (time > 5000) {
+      reject(new Error('This time is too much !'));
+    } else {
+      setInterval(() => {
+        resolve(time);
+        reject(new Error('time is too long'));
+      }, time);
+    }
+  });
 }
