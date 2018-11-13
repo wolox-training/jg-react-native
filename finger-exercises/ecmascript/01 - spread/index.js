@@ -14,5 +14,6 @@ export function min(...arg) {
 }
 
 export function copy(arg) {
-  return arg;
+  const objCopy = Object.assign({}, arg);
+  return objCopy;
 }
