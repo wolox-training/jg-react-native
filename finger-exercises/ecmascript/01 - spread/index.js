@@ -25,3 +25,11 @@ export function reverseMerge(arg1, arg2) {
   obj.push(...arg1);
   return obj;
 }
+
+export function filterAttribs(arg) {
+  const obj = Object.assign({}, arg);
+  const a = 'a'; const b = 'b';
+  delete obj[a];
+  delete obj[b];
+  return obj;
+}
