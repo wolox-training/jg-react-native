@@ -1,0 +1,38 @@
+@import 'text';
+@import 'colors';
+
+$box-shadow: 0 3px 10px $grey;
+
+.nav {
+  align-items: center;
+  background-color: $white;
+  box-shadow: $box-shadow;
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  padding: 20px 10px;
+  position: fixed;
+  text-align: end;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.img-title {
+  height: 30px;
+}
+
+.img-title {
+  height: 30px;
+}
+
+.nav-title {
+  font-size: $text-big;
+  width: inherit;
+}
+
+@media only screen and (max-width: 1024px) {
+  .nav-title {
+    display: none;
+  }
+}

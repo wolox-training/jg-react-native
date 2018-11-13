@@ -1,0 +1,84 @@
+@import 'colors';
+@import 'text';
+
+$bor-back-tech: 0.5px solid $green;
+$border-radius: 5px;
+$height: 312px;
+$padding-mobile: 10px 10px 35px;
+$width: 218px;
+
+@mixin tech-pr {
+  border-right: solid 2px $green;
+  height: 100%;
+  margin-left: 50%;
+  padding: 50% 10% 50% 0;
+}
+
+@mixin tech-pr-mb {
+  border-right: none;
+  height: $height;
+  margin: 20px;
+  padding: $padding-mobile;
+}
+
+.tech {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: $height;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 10px 40px 35px 25px;
+  text-align: center;
+  width: $width;
+
+  &:nth-child(2) {
+    @include tech-pr;
+    grid-row: 2/4; 
+  }
+  
+  &:nth-child(8) {
+    @include tech-pr;
+    grid-row: 5/7;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .tech {
+    border-bottom: solid 2px $green;
+    padding: $padding-mobile;
+
+    &:nth-child(2) {
+      @include tech-pr-mb;
+      grid-row: 2/3; 
+    }
+
+    &:nth-child(6), &:nth-child(11) {
+      border-bottom: none;
+    }
+    
+    &:nth-child(8) {
+      @include tech-pr-mb;
+      grid-row: 8/9;
+    }
+  }
+}
+
+.img-tech {
+  height: 100px;
+  width: 100px;
+}
+
+.tech-title {
+  font-size: $text-medium;
+}
+
+.tech-release {
+  font-size: $text-small;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+.tech-description {
+  font-size: $text-small;
+}

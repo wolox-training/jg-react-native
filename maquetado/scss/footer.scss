@@ -1,0 +1,42 @@
+@import 'colors';
+@import 'text';
+
+.footer {
+  align-items: center;
+  background-color: $blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 45px 25px 15px;
+  width: 100%;
+}
+
+.foo-tl {
+  color: $white;
+  font-size: $text-big;
+}
+
+.foo-img {
+  padding-top: 20px;
+}
+
+.foo-cpr {
+  align-self: flex-end;
+  color: $white;
+  padding: 15px 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  .foo-tl {
+    font-size: $text-medium;
+  }
+
+  .foo-img {
+    width: 80%;
+  }
+
+  .foo-cpr {
+    align-self: center;
+    color: $white;
+  }
+}
