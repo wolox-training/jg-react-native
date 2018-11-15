@@ -5,7 +5,7 @@ import style from './styles.scss';
 
 function Square(props) {
   return (
-    <button className={style.square} onClick={() => props.onClick()}>
+    <button className={style.square} onClick={props.onClick}>
       {props.value}
     </button>
   );
