@@ -14,14 +14,7 @@ class Game extends Component {
 
   getWinner = current => {
     const winner = this.calculateWinner(current.squares);
-    let status;
-    if (winner) {
-      status = `Winner: ${winner}`;
-    } else {
-      status = `Next player:  ${this.state.xIsNext ? 'X' : 'O'}`;
-    }
-
-    return status;
+    return winner ? `Winner: ${winner}` : `Next player:  ${this.state.xIsNext ? 'X' : 'O'}`;
   };
 
   getMoves = history => {
@@ -33,7 +26,6 @@ class Game extends Component {
         </li>
       );
     });
-
     return moves;
   };
 
@@ -58,7 +50,7 @@ class Game extends Component {
     this.setState(prevState => ({
       history: [...prevState.history, { squares }],
       stepNumber: prevState.history.length,
-      xIsNext: !this.state.xIsNext
+      xIsNext: !prevState.xIsNext
     }));
   };
 
