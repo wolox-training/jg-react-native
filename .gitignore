@@ -8,4 +8,5 @@
 
 ## System ##
 .DS_Store
-finger-exercises/ecmascript/node_modules/
+finger-exercises/*/node_modules/
+tic-tac-toe/
