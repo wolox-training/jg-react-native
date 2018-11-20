@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Square from '../square';
-import { rowItems } from '../../const';
+import { rowItems } from '../../../const';
 
 import style from './styles.scss';
 

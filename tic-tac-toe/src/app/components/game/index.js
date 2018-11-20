@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import Board from '../board';
-import { clickSquare, clickStep } from '../../actions';
+import { clickSquare, clickStep } from '../../../redux/game/actions';
 
 import style from './styles.scss';
 

@@ -1,5 +1,6 @@
-import { actions } from '../actions';
-import { linesWin } from '../const';
+import { linesWin } from '../../const';
+
+import { actions } from './actions';
 
 const initialState = {
   history: [{ squares: Array(9).fill(null) }],

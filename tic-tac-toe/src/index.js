@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import './scss/index.scss';
 
-import reducer from './app/reducers';
+import reducer from './redux/game/reducer';
 import Game from './app/components/game';
 
 const store = createStore(reducer);
