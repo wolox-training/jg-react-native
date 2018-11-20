@@ -1,6 +1,6 @@
 export const actions = {
-  CLICK_SQUARE: '@@BOOKS/CLICK_SQUARE',
-  CLICK_STEP: '@@BOOKS/CLICK_STEP'
+  CLICK_SQUARE: '@@GAME/CLICK_SQUARE',
+  CLICK_STEP: '@@GAME/CLICK_STEP'
 };
 
 export const clickSquare = item => ({
