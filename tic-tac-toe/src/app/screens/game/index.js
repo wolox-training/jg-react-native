@@ -17,9 +17,12 @@ class Game extends Component {
   getMoves = history => {
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move #${move}` : 'Go to game start';
+      const jumpClick = () => {
+        this.jumpTo(move);
+      };
       return (
         <li key={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+          <button onClick={jumpClick}>{desc}</button>
         </li>
       );
     });
@@ -55,7 +58,7 @@ class Game extends Component {
     return (
       <div className={style.game}>
         <div className={style.gameBoard}>
-          <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+          <Board squares={current.squares} onClick={this.handleClick} />
         </div>
         <div className={style.gameInfo}>
           <div>{this.getWinner(current)}</div>

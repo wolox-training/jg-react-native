@@ -16,7 +16,9 @@ class Board extends Component {
     return rows;
   };
 
-  renderSquare = i => <Square value={this.props.squares[i]} key={i} onClick={() => this.props.onClick(i)} />;
+  handleClick = i => this.props.onClick(i);
+
+  renderSquare = i => <Square index={i} value={this.props.squares[i]} key={i} onClick={this.handleClick} />;
 
   render() {
     return (

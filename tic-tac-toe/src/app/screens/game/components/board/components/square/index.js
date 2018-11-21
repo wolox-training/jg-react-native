@@ -4,8 +4,12 @@ import PropTypes from 'prop-types';
 import style from './styles.scss';
 
 function Square(props) {
+  const handleClick = () => {
+    props.onClick(props.index);
+  };
+
   return (
-    <button className={style.square} onClick={props.onClick}>
+    <button className={style.square} onClick={handleClick}>
       {props.value}
     </button>
   );
@@ -13,6 +17,7 @@ function Square(props) {
 
 Square.propTypes = {
   value: PropTypes.string,
+  index: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired
 };
 
