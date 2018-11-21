@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import './scss/index.scss';
 
 import reducer from './redux/game/reducer';
-import Game from './app/components/game';
+import Game from './app/screens/game';
 
 const store = createStore(reducer);
 ReactDOM.render(

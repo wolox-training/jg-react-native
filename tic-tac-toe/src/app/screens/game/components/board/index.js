@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Square from '../square';
-import { rowItems } from '../../../const';
+import { rowItems } from '../../../../../const';
 
+import Square from './components/square';
 import style from './styles.scss';
 
 class Board extends Component {

@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import Board from '../board';
 import { clickSquare, clickStep } from '../../../redux/game/actions';
 
 import style from './styles.scss';
+import Board from './components/board';
 
 class Game extends Component {
   getWinner = () =>
