@@ -3,11 +3,9 @@ export const actions = {
   CLICK_STEP: '@@GAME/CLICK_STEP'
 };
 
-export const clickSquare = item => ({
+export const clickSquare = squares => ({
   type: actions.CLICK_SQUARE,
-  payload: {
-    item
-  }
+  payload: { squares }
 });
 export const clickStep = step => ({
   type: actions.CLICK_STEP,
