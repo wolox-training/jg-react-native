@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import style from './styles.scss';
 
-function Square(props) {
-  const handleClick = () => {
-    props.onClick(props.index);
+class Square extends Component {
+  handleClick = () => {
+    this.props.onClick(this.props.index);
   };
 
-  return (
-    <button className={style.square} onClick={handleClick}>
-      {props.value}
-    </button>
-  );
+  render() {
+    return (
+      <button className={style.square} onClick={this.handleClick}>
+        {this.props.value}
+      </button>
+    );
+  }
 }
 
 Square.propTypes = {
