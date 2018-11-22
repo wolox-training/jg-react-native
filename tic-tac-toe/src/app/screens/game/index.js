@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
-import { clickSquare, clickStep } from '../../../redux/game/actions';
-import { linesWin } from '../../../const';
+import { linesWin } from '@constants/const';
+import { clickSquare, clickStep } from '@redux/game/actions';
 
 import style from './styles.scss';
 import Board from './components/board';

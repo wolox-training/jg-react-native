@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
-import { rowItems } from '../../../../../const';
+import { rowItems } from '@constants/const';
 
 import Square from './components/square';
 import style from './styles.scss';
