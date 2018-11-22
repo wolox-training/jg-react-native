@@ -69,16 +69,16 @@ class Game extends Component {
   }
 }
 
-Game.propTypes = {
-  history: PropTypes.arrayOf(PropTypes.any).isRequired,
-  stepNumber: PropTypes.number.isRequired,
-  xIsNext: PropTypes.bool.isRequired
-};
-
 const mapStateToProps = store => ({
   history: store.history,
   stepNumber: store.stepNumber,
   xIsNext: store.xIsNext
 });
+
+Game.propTypes = {
+  history: PropTypes.arrayOf(PropTypes.any).isRequired,
+  stepNumber: PropTypes.number.isRequired,
+  xIsNext: PropTypes.bool.isRequired
+};
 
 export default connect(mapStateToProps)(Game);
