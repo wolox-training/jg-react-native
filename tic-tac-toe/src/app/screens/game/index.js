@@ -4,31 +4,18 @@ import { connect } from 'react-redux';
 import { linesWin } from '@constants/const';
 import { clickSquare, clickStep } from '@redux/game/actions';
 
-import style from './styles.scss';
-import Board from './components/board';
+import Game from './layout';
 
-class Game extends Component {
+class GameContainer extends Component {
   getWinner = current => {
+    console.log(current);
+    console.log(current.squares);
     const winner = this.calculateWinner(current.squares);
     return winner ? `Winner: ${winner}` : `Next player:  ${this.props.xIsNext ? 'X' : 'O'}`;
   };
 
-  getMoves = history => {
-    const moves = history.map((step, move) => {
-      const desc = move ? `Go to move #${move}` : 'Go to game start';
-      const jumpClick = () => {
-        this.jumpTo(move);
-      };
-      return (
-        <li key={move}>
-          <button onClick={jumpClick}>{desc}</button>
-        </li>
-      );
-    });
-    return moves;
-  };
-
   calculateWinner = squares => {
+    console.log(squares);
     for (let i = 0; i < linesWin.length; i += 1) {
       const [a, b, c] = linesWin[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
@@ -55,15 +42,12 @@ class Game extends Component {
     const history = this.props.history;
     const current = history[this.props.stepNumber];
     return (
-      <div className={style.game}>
-        <div className={style.gameBoard}>
-          <Board squares={current.squares} onClick={this.handleClick} />
-        </div>
-        <div className={style.gameInfo}>
-          <div>{this.getWinner(current)}</div>
-          <ol>{this.getMoves(history)}</ol>
-        </div>
-      </div>
+      <Game
+        handleClick={this.handleClick}
+        history={history}
+        squares={current.squares}
+        winner={this.getWinner(history)}
+      />
     );
   }
 }
@@ -74,10 +58,10 @@ const mapStateToProps = store => ({
   xIsNext: store.xIsNext
 });
 
-Game.propTypes = {
+GameContainer.propTypes = {
   history: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   stepNumber: PropTypes.number.isRequired,
   xIsNext: PropTypes.bool.isRequired
 };
 
-export default connect(mapStateToProps)(Game);
+export default connect(mapStateToProps)(GameContainer);
