@@ -9,7 +9,7 @@ class Game extends Component {
     const moves = history.map((step, move) => {
       const desc = move ? `Go to move #${move}` : 'Go to game start';
       const jumpClick = () => {
-        this.jumpTo(move);
+        this.props.jumpClick(move);
       };
       return (
         <li key={move}>
@@ -37,6 +37,7 @@ class Game extends Component {
 
 Game.propTypes = {
   handleClick: PropTypes.func.isRequired,
+  jumpClick: PropTypes.func.isRequired,
   history: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   squares: PropTypes.arrayOf(PropTypes.string).isRequired,
   winner: PropTypes.string.isRequired

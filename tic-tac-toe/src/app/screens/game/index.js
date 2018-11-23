@@ -8,14 +8,11 @@ import Game from './layout';
 
 class GameContainer extends Component {
   getWinner = current => {
-    console.log(current);
-    console.log(current.squares);
     const winner = this.calculateWinner(current.squares);
     return winner ? `Winner: ${winner}` : `Next player:  ${this.props.xIsNext ? 'X' : 'O'}`;
   };
 
   calculateWinner = squares => {
-    console.log(squares);
     for (let i = 0; i < linesWin.length; i += 1) {
       const [a, b, c] = linesWin[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
@@ -44,9 +41,10 @@ class GameContainer extends Component {
     return (
       <Game
         handleClick={this.handleClick}
+        jumpClick={this.jumpTo}
         history={history}
         squares={current.squares}
-        winner={this.getWinner(history)}
+        winner={this.getWinner(current)}
       />
     );
   }
