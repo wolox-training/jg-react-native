@@ -75,7 +75,7 @@ const mapStateToProps = store => ({
 });
 
 Game.propTypes = {
-  history: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  history: PropTypes.arrayOf(PropTypes.shape({ squares: PropTypes.arrayOf(PropTypes.string) })).isRequired,
   stepNumber: PropTypes.number.isRequired,
   xIsNext: PropTypes.bool.isRequired
 };
