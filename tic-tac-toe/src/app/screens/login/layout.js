@@ -1,25 +1,28 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import PropTypes from 'prop-types';
 
-import style from './styles.css';
+import style from './styles.scss';
 
-function Login(props) {
+function LoginForm(props) {
+  // eslint-disable-next-line
+  const { handleSubmit } = props;
   return (
-    <form onSubmit={props.onSubmit} className={style.login}>
-      <Field name="username" component="input" type="text" label="Username" />
-      <Field name="password" component="input" type="password" label="Password" />
+    <form onSubmit={handleSubmit} className={style.login}>
+      <div>
+        <label htmlFor="username"> Username </label>
+        <Field name="username" component="input" type="text" />
+      </div>
+      <div>
+        <label htmlFor="password"> Password </label>
+        <Field name="password" component="input" type="password" />
+      </div>
       <button type="submit">Submit</button>
     </form>
   );
 }
-
-const LoginForm = reduxForm({
+// eslint-disable-next-line
+LoginForm = reduxForm({
   form: 'login'
-})(Login);
-
-Login.propTypes = {
-  onSubmit: PropTypes.func.isRequired
-};
+})(LoginForm);
 
 export default LoginForm;

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { clickLogin } from '@redux/login/actions';
 
 import Login from './layout';
 
 class LoginContainer extends Component {
-  onSubmit = e => {
-    console.log(e);
+  onSubmit = values => {
+    const { username, password } = values;
+    this.props.dispatch(clickLogin(username, password));
   };
 
   render() {
@@ -12,4 +16,12 @@ class LoginContainer extends Component {
   }
 }
 
-export default LoginContainer;
+const mapStateToProps = store => ({
+  loggedIn: store.loggedIn
+});
+
+LoginContainer.propTypes = {
+  loggedIn: PropTypes.bool
+};
+
+export default connect(mapStateToProps)(LoginContainer);
