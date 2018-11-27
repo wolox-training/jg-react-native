@@ -1,0 +1,15 @@
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.login > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 15px;
+}
+
+.btn {
+  width: 100px;
+}
