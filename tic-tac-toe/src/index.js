@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import './scss/index.scss';
 
 import store from './redux/store';
-import Login from './app/screens/login';
+import Login from './app/screens/Login';
 //import Game from './app/screens/Game';
 
 ReactDOM.render(

@@ -1,7 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
-import loginReducer from './login/reducer';
+import loginReducer from './Login/reducer';
 import gameReducer from './Game/reducer';
 
 const reducers = {
