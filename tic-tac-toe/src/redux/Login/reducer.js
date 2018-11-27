@@ -1,18 +1,24 @@
+import { LOGGEDIN, NOAUTH, LOADING, OUT, ERROR } from '@constants/const';
+
 import { actions } from './actions';
 
 const initialState = {
-  username: null,
-  password: null,
-  loggedIn: false
+  loggedEstate: OUT
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actions.CLICK_LOGIN:
       return {
-        username: action.payload.username,
-        password: action.payload.password,
-        loggedIn: true
+        loggedEstate: LOADING
+      };
+    case actions.AUTH:
+      return {
+        loggedEstate: action.payload ? LOGGEDIN : NOAUTH
+      };
+    case actions.ERROR:
+      return {
+        loggedEstate: ERROR
       };
     default:
       return state;
