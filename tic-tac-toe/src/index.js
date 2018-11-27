@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import './scss/index.scss';
 
 import store from './redux/store';
-import Game from './app/screens/game';
+import Game from './app/screens/Game';
 
 ReactDOM.render(
   <Provider store={store}>

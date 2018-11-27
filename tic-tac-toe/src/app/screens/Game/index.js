@@ -2,30 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { linesWin } from '@constants/const';
-import { clickSquare, clickStep } from '@redux/game/actions';
+import { clickSquare, clickStep } from '@redux/Game/actions';
 
-import style from './styles.scss';
-import Board from './components/board';
+import Game from './layout';
 
-class Game extends Component {
+class GameContainer extends Component {
   getWinner = current => {
     const winner = this.calculateWinner(current.squares);
     return winner ? `Winner: ${winner}` : `Next player:  ${this.props.xIsNext ? 'X' : 'O'}`;
-  };
-
-  getMoves = history => {
-    const moves = history.map((step, move) => {
-      const desc = move ? `Go to move #${move}` : 'Go to game start';
-      const jumpClick = () => {
-        this.jumpTo(move);
-      };
-      return (
-        <li key={move}>
-          <button onClick={jumpClick}>{desc}</button>
-        </li>
-      );
-    });
-    return moves;
   };
 
   calculateWinner = squares => {
@@ -52,18 +36,16 @@ class Game extends Component {
   jumpTo = step => this.props.dispatch(clickStep(step));
 
   render() {
-    const history = this.props.history;
+    const { history } = this.props;
     const current = history[this.props.stepNumber];
     return (
-      <div className={style.game}>
-        <div className={style.gameBoard}>
-          <Board squares={current.squares} onClick={this.handleClick} />
-        </div>
-        <div className={style.gameInfo}>
-          <div>{this.getWinner(current)}</div>
-          <ol>{this.getMoves(history)}</ol>
-        </div>
-      </div>
+      <Game
+        handleClick={this.handleClick}
+        jumpClick={this.jumpTo}
+        history={history}
+        squares={current.squares}
+        winner={this.getWinner(current)}
+      />
     );
   }
 }
@@ -80,4 +62,4 @@ Game.propTypes = {
   xIsNext: PropTypes.bool.isRequired
 };
 
-export default connect(mapStateToProps)(Game);
+export default connect(mapStateToProps)(GameContainer);
