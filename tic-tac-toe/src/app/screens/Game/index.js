@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { linesWin } from '@constants/const';
-import { clickSquare, clickStep } from '@redux/game/actions';
+import { clickSquare, clickStep } from '@redux/Game/actions';
 
 import Game from './layout';
 
@@ -36,7 +36,7 @@ class GameContainer extends Component {
   jumpTo = step => this.props.dispatch(clickStep(step));
 
   render() {
-    const history = this.props.history;
+    const { history } = this.props;
     const current = history[this.props.stepNumber];
     return (
       <Game
