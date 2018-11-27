@@ -36,7 +36,7 @@ class GameContainer extends Component {
   jumpTo = step => this.props.dispatch(clickStep(step));
 
   render() {
-    const history = this.props.history;
+    const { history } = this.props;
     const current = history[this.props.stepNumber];
     return (
       <Game
