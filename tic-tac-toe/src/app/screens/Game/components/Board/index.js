@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { rowItems } from '@constants/const';
 
-import Square from './components/square';
+import Square from './components/Square';
 import style from './styles.scss';
 
 class Board extends Component {

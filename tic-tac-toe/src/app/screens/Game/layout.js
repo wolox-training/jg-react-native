@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import style from './styles.scss';
-import Board from './components/board';
+import Board from './components/Board';
 
 class Game extends Component {
   getMoves = history => {
