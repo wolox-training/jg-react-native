@@ -16,7 +16,9 @@ function LoginForm(props) {
         <label htmlFor="password"> Password </label>
         <Field name="password" component="input" type="password" />
       </div>
-      <button className={style.btn} type="submit">Sign in</button>
+      <button className={style.btn} type="submit">
+        Sign in
+      </button>
     </form>
   );
 }

@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { clickLogin } from '@redux/Login/actions';
+import authService from '@services/AuthService';
 
 import Login from './layout';
 
 class LoginContainer extends Component {
-  onSubmit = values => {
+  onSubmit = async values => {
     const { username, password } = values;
-    this.props.dispatch(clickLogin(username, password));
+    try {
+      const logged = await authService.auth(username, password);
+    } catch (error) {
+      // eslint-disable-next-line
+      console.log(error);
+    }
   };
 
   render() {

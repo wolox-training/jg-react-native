@@ -1,0 +1,8 @@
+{
+  "users": [
+    { "id": 1, "name": "Jhon", "age": "22", "username": "jhon", "password": "qwerty"},
+    { "id": 2, "name": "Adam", "age": "20", "username": "adam", "password": "1234"},
+    { "id": 3, "name": "Luke", "age": "25", "username": "luke", "password": "admin"},
+    { "id": 4, "name": "Jeff", "age": "21", "username": "jeff", "password": "abcd"}
+  ]
+}
