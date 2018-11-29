@@ -51,9 +51,9 @@ class GameContainer extends Component {
 }
 
 const mapStateToProps = store => ({
-  history: store.history,
-  stepNumber: store.stepNumber,
-  xIsNext: store.xIsNext
+  history: store.game.history,
+  stepNumber: store.game.stepNumber,
+  xIsNext: store.game.xIsNext
 });
 
 Game.propTypes = {

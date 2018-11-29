@@ -2,20 +2,28 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 import style from './styles.scss';
+import { required, minLength, email } from './validation';
+import customField from './components/Field';
 
 function LoginForm(props) {
   // eslint-disable-next-line
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} className={style.login}>
-      <div>
-        <label htmlFor="username"> Username </label>
-        <Field name="username" component="input" type="text" />
-      </div>
-      <div>
-        <label htmlFor="password"> Password </label>
-        <Field name="password" component="input" type="password" />
-      </div>
+      <Field
+        name="username"
+        label="Username"
+        component={customField}
+        type="text"
+        validate={[required, email]}
+      />
+      <Field
+        name="password"
+        label="Password"
+        component={customField}
+        type="password"
+        validate={[required, minLength]}
+      />
       <button className={style.btn} type="submit">
         Sign in
       </button>

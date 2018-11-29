@@ -3,7 +3,8 @@ import authService from '@services/AuthService';
 export const actions = {
   CLICK_LOGIN: '@@LOGIN/CLICK_LOGIN',
   AUTH: '@@LOGIN/AUTH',
-  ERROR: '@@LOGIN/ERROR'
+  ERROR: '@@LOGIN/ERROR',
+  CHANGE: '@@LOGIN/CHANGE'
 };
 
 const actionCreators = {
@@ -15,7 +16,12 @@ const actionCreators = {
     } else {
       dispatch({ type: actions.ERROR, payload: response.problem });
     }
-  }
+  },
+
+  change: state => ({
+    type: actions.CHANGE,
+    payload: state
+  })
 };
 
 export default actionCreators;

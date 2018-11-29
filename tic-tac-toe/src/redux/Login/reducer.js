@@ -20,6 +20,10 @@ const reducer = (state = initialState, action) => {
       return {
         loggedEstate: ERROR
       };
+    case actions.CHANGE:
+      return {
+        loggedEstate: action.payload
+      };
     default:
       return state;
   }
