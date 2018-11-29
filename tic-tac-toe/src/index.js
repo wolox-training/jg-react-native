@@ -7,6 +7,10 @@ import './scss/index.scss';
 import store, { history } from './redux/store';
 import App from './app';
 
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <App history={history} />

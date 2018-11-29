@@ -5,34 +5,39 @@ import PropTypes from 'prop-types';
 import style from './styles.scss';
 import { required, minLength, email } from './validation';
 import customField from './components/Field';
+import ModalError from './components/ModalError';
 
 function LoginForm(props) {
-  const { handleSubmit } = props;
+  const { handleSubmit, messageError } = props;
   return (
-    <form onSubmit={handleSubmit} className={style.login}>
-      <Field
-        name="username"
-        label="Username"
-        component={customField}
-        type="text"
-        validate={[required, email]}
-      />
-      <Field
-        name="password"
-        label="Password"
-        component={customField}
-        type="password"
-        validate={[required, minLength]}
-      />
-      <button className={style.btn} type="submit">
-        Sign in
-      </button>
-    </form>
+    <React.Fragment>
+      {messageError && <ModalError message={messageError} />}
+      <form onSubmit={handleSubmit} className={style.login}>
+        <Field
+          name="username"
+          label="Username"
+          component={customField}
+          type="text"
+          validate={[required, email]}
+        />
+        <Field
+          name="password"
+          label="Password"
+          component={customField}
+          type="password"
+          validate={[required, minLength]}
+        />
+        <button className={style.btn} type="submit">
+          Sign in
+        </button>
+      </form>
+    </React.Fragment>
   );
 }
 
 LoginForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired,
+  messageError: PropTypes.string
 };
 
 export default reduxForm({

@@ -8,6 +8,8 @@ export const actions = {
   CHANGE: '@@LOGIN/CHANGE'
 };
 
+const serverError = 'An error occurred with the server';
+
 const actionCreators = {
   login: (username, password) => async dispatch => {
     dispatch({ type: actions.CLICK_LOGIN });
@@ -16,7 +18,7 @@ const actionCreators = {
       dispatch({ type: actions.AUTH, payload: response.data });
       dispatch(push('/game'));
     } else {
-      dispatch({ type: actions.ERROR, payload: response.problem });
+      dispatch({ type: actions.ERROR, payload: response.data || serverError });
     }
   },
 

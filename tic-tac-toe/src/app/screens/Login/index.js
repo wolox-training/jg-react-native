@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import loginActions from '@redux/Login/actions';
 
 import Login from './layout';
@@ -11,8 +12,16 @@ class LoginContainer extends Component {
   };
 
   render() {
-    return <Login onSubmit={this.onSubmit} />;
+    return <Login onSubmit={this.onSubmit} messageError={this.props.errorAuthMessage} />;
   }
 }
 
-export default connect()(LoginContainer);
+const mapStateToProps = store => ({
+  errorAuthMessage: store.login.errorAuthMessage
+});
+
+LoginContainer.propTypes = {
+  errorAuthMessage: PropTypes.string
+};
+
+export default connect(mapStateToProps)(LoginContainer);
