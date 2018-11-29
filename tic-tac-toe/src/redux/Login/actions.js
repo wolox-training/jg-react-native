@@ -1,4 +1,5 @@
 import authService from '@services/AuthService';
+import { push } from 'connected-react-router';
 
 export const actions = {
   CLICK_LOGIN: '@@LOGIN/CLICK_LOGIN',
@@ -13,6 +14,7 @@ const actionCreators = {
     const response = await authService.auth(username, password);
     if (response.ok) {
       dispatch({ type: actions.AUTH, payload: response.data });
+      dispatch(push('/game'));
     } else {
       dispatch({ type: actions.ERROR, payload: response.problem });
     }

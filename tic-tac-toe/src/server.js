@@ -18,7 +18,7 @@ server.get('/auth', (req, res) => {
     if (result) {
       res.status(200).jsonp(true);
     } else {
-      res.status(200).jsonp(false);
+      res.status(400).jsonp('User or password not found');
     }
   } else {
     res.status(400).jsonp({
