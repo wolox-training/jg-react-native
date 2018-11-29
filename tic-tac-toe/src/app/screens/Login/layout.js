@@ -1,10 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import PropTypes from 'prop-types';
 
 import style from './styles.scss';
 
 function LoginForm(props) {
-  // eslint-disable-next-line
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit} className={style.login}>
@@ -22,9 +22,11 @@ function LoginForm(props) {
     </form>
   );
 }
-// eslint-disable-next-line
-LoginForm = reduxForm({
+
+LoginForm.propTypes = {
+  handleSubmit: PropTypes.func.isRequired
+};
+
+export default reduxForm({
   form: 'login'
 })(LoginForm);
-
-export default LoginForm;
