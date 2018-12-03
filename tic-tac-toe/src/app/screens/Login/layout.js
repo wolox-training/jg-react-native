@@ -6,8 +6,7 @@ import style from './styles.scss';
 import { required, minLength, email } from './validation';
 import customField from './components/Field';
 
-function LoginForm(props) {
-  const { handleSubmit } = props;
+function LoginForm({ handleSubmit }) {
   return (
     <form onSubmit={handleSubmit} className={style.login}>
       <Field
