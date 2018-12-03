@@ -7,8 +7,7 @@ import { required, minLength, email } from './validation';
 import customField from './components/Field';
 import ModalError from './components/ModalError';
 
-function LoginForm(props) {
-  const { handleSubmit, messageError } = props;
+function LoginForm({ handleSubmit, messageError }) {
   return (
     <React.Fragment>
       {messageError && <ModalError message={messageError} />}
