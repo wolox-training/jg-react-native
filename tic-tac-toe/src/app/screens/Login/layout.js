@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 
 import style from './styles.scss';
 
-function LoginForm(props) {
-  const { handleSubmit } = props;
+function LoginForm({ handleSubmit }) {
   return (
     <form onSubmit={handleSubmit} className={style.login}>
       <div>
