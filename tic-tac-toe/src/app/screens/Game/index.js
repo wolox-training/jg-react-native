@@ -8,10 +8,11 @@ import { clickSquare, clickStep } from '@redux/Game/actions';
 import Game from './layout';
 
 class GameContainer extends Component {
-  componentDidMount() {
-    const { loggedState } = this.props;
+  constructor(props) {
+    super(props);
+    const { loggedState } = props;
     if (loggedState !== LOGGEDIN) {
-      this.props.dispatch(push('/'));
+      props.dispatch(push('/'));
     }
   }
 

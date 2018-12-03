@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
 
 import './scss/index.scss';
 
-import store, { history } from './redux/store';
+import createStore from './redux/store';
 import App from './app';
+
+const history = createBrowserHistory();
+const store = createStore(history);
 
 store.subscribe(() => {
   console.log(store.getState());

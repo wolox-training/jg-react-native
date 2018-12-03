@@ -8,12 +8,14 @@ import { LOGGEDIN } from '@constants/const';
 import Login from './layout';
 
 class LoginContainer extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     const { loggedState } = this.props;
     if (loggedState === LOGGEDIN) {
       this.props.dispatch(push('/game'));
     }
   }
+
   onSubmit = values => {
     const { username, password } = values;
     this.props.dispatch(loginActions.login(username, password));

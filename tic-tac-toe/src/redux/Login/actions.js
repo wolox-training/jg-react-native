@@ -1,5 +1,6 @@
 import authService from '@services/AuthService';
 import { push } from 'connected-react-router';
+import { JWTUSER } from '@constants/const';
 
 export const actions = {
   CLICK_LOGIN: '@@LOGIN/CLICK_LOGIN',
@@ -16,7 +17,7 @@ const actionCreators = {
     const response = await authService.auth(username, password);
     if (response.ok) {
       dispatch({ type: actions.AUTH });
-      sessionStorage.setItem('jwtToken', response.data.token);
+      sessionStorage.setItem(JWTUSER, response.data.token);
       dispatch(push('/game'));
     } else {
       dispatch({ type: actions.ERROR, payload: response.data || serverError });

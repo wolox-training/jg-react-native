@@ -13,3 +13,5 @@ export const ERROR = 'ERROR';
 export const LOADING = 'LOADING';
 export const LOGGEDIN = 'LOGGEDIN';
 export const OUT = 'OUT';
+
+export const JWTUSER = 'jwtUser';

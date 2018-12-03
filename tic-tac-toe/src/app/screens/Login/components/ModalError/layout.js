@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 
 import style from './styles.scss';
 
-function ModalError(props) {
+function ModalError({ message, handleClose }) {
   const title = 'Error!';
-  const { message, handleClose } = props;
   return (
     <div className={style.modal}>
       <div className={style.modalContent}>
