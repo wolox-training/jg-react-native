@@ -15,7 +15,8 @@ const actionCreators = {
     dispatch({ type: actions.CLICK_LOGIN });
     const response = await authService.auth(username, password);
     if (response.ok) {
-      dispatch({ type: actions.AUTH, payload: response.data });
+      dispatch({ type: actions.AUTH });
+      sessionStorage.setItem('jwtToken', response.data.token);
       dispatch(push('/game'));
     } else {
       dispatch({ type: actions.ERROR, payload: response.data || serverError });

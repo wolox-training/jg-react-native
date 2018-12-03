@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { linesWin } from '@constants/const';
+import { push } from 'connected-react-router';
+import { linesWin, LOGGEDIN } from '@constants/const';
 import { clickSquare, clickStep } from '@redux/Game/actions';
 
 import Game from './layout';
 
 class GameContainer extends Component {
+  componentDidMount() {
+    const { loggedState } = this.props;
+    if (loggedState !== LOGGEDIN) {
+      this.props.dispatch(push('/'));
+    }
+  }
+
   getWinner = current => {
     const winner = this.calculateWinner(current.squares);
     return winner ? `Winner: ${winner}` : `Next player:  ${this.props.xIsNext ? 'X' : 'O'}`;
@@ -53,13 +61,15 @@ class GameContainer extends Component {
 const mapStateToProps = store => ({
   history: store.game.history,
   stepNumber: store.game.stepNumber,
-  xIsNext: store.game.xIsNext
+  xIsNext: store.game.xIsNext,
+  loggedState: store.login.loggedState
 });
 
 GameContainer.propTypes = {
   history: PropTypes.arrayOf(PropTypes.shape({ squares: PropTypes.arrayOf(PropTypes.string) })).isRequired,
   stepNumber: PropTypes.number.isRequired,
-  xIsNext: PropTypes.bool.isRequired
+  xIsNext: PropTypes.bool.isRequired,
+  loggedState: PropTypes.string.isRequired
 };
 
 export default connect(mapStateToProps)(GameContainer);

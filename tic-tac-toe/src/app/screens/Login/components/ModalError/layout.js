@@ -9,7 +9,7 @@ function ModalError(props) {
   return (
     <div className={style.modal}>
       <div className={style.modalContent}>
-        <span className={style.close} role="button" tabIndex={0} onClick={handleClose} >
+        <span className={style.close} role="button" tabIndex={0} onClick={handleClose}>
           &times;
         </span>
         <h3>{title}</h3>
