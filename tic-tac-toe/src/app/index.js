@@ -5,7 +5,10 @@ import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
 import Game from '@screens/Game';
 import Login from '@screens/Login';
+import Profile from '@screens/Profile';
+import Topbar from '@components/Topbar';
 import { sessionValidation } from '@config/session';
+import { LOGGEDIN } from '@constants/const';
 
 class App extends Component {
   constructor(props) {
@@ -14,20 +17,29 @@ class App extends Component {
   }
 
   render() {
-    const { history } = this.props;
+    const { history, loggedState } = this.props;
     return (
       <ConnectedRouter history={history}>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/game" component={Game} />
-        </Switch>
+        <React.Fragment>
+          {loggedState === LOGGEDIN && <Topbar />}
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route path="/game" component={Game} />
+            <Route path="/profile" component={Profile} />
+          </Switch>
+        </React.Fragment>
       </ConnectedRouter>
     );
   }
 }
 
+const mapStateToProps = store => ({
+  loggedState: store.login.loggedState
+});
+
 App.propTypes = {
-  history: PropTypes.shape({})
+  history: PropTypes.shape({}),
+  loggedState: PropTypes.string
 };
 
-export default connect()(App);
+export default connect(mapStateToProps)(App);

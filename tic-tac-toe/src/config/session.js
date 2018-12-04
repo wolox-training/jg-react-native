@@ -1,3 +1,4 @@
+import { push } from 'connected-react-router';
 import loginActions from '@redux/Login/actions';
 import { JWTUSER, LOGGEDIN, OUT } from '@constants/const';
 
@@ -18,4 +19,10 @@ export function sessionValidation(dispatch) {
     state = OUT;
   }
   dispatch(loginActions.change(state));
+}
+
+export function endSession(dispatch) {
+  sessionStorage.removeItem(JWTUSER);
+  dispatch(loginActions.change(OUT));
+  dispatch(push('/'));
 }
