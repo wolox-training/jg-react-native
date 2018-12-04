@@ -13,7 +13,7 @@ import { LOGGEDIN } from '@constants/const';
 class App extends Component {
   constructor(props) {
     super(props);
-    sessionValidation(props.dispatch);
+    sessionValidation(props.dispatch, props.path);
   }
 
   render() {
@@ -34,12 +34,14 @@ class App extends Component {
 }
 
 const mapStateToProps = store => ({
-  loggedState: store.login.loggedState
+  loggedState: store.login.loggedState,
+  path: store.router.location.pathname
 });
 
 App.propTypes = {
   history: PropTypes.shape({}),
-  loggedState: PropTypes.string
+  loggedState: PropTypes.string,
+  path: PropTypes.string
 };
 
 export default connect(mapStateToProps)(App);

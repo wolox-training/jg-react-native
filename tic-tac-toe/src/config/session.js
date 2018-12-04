@@ -2,13 +2,13 @@ import { push } from 'connected-react-router';
 import loginActions from '@redux/Login/actions';
 import { JWTUSER, LOGGEDIN, OUT } from '@constants/const';
 
-function parseJwt(token) {
+export function parseJwt(token) {
   const base64Url = token.split('.')[1];
   const base64 = base64Url.replace('-', '+').replace('_', '/');
   return JSON.parse(window.atob(base64));
 }
 
-export function sessionValidation(dispatch) {
+export function sessionValidation(dispatch, path) {
   let state;
   const token = sessionStorage.getItem(JWTUSER);
   if (token) {
@@ -19,6 +19,11 @@ export function sessionValidation(dispatch) {
     state = OUT;
   }
   dispatch(loginActions.change(state));
+  if (state === OUT) {
+    dispatch(push('/'));
+  } else if (state === LOGGEDIN && path === '/') {
+    dispatch(push('/game'));
+  }
 }
 
 export function endSession(dispatch) {
