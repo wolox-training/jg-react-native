@@ -5,11 +5,12 @@ import { Provider } from 'react-redux';
 import './scss/index.scss';
 
 import store from './redux/store';
-import Game from './app/screens/Game';
+import Login from './app/screens/Login';
+//import Game from './app/screens/Game';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Game />
+    <Login />
   </Provider>,
   document.getElementById('root')
 );
