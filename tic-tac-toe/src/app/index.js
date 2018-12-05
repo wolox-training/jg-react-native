@@ -41,7 +41,7 @@ const mapStateToProps = store => ({
 App.propTypes = {
   history: PropTypes.shape({}),
   loggedState: PropTypes.string,
-  path: PropTypes.string
+  path: PropTypes.string.isRequired
 };
 
 export default connect(mapStateToProps)(App);

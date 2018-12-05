@@ -30,8 +30,8 @@ class Topbar extends Component {
 Topbar.propTypes = {
   urls: PropTypes.arrayOf(
     PropTypes.shape({
-      src: PropTypes.string,
-      name: PropTypes.string
+      src: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
     })
   ).isRequired,
   logoutClick: PropTypes.func.isRequired
