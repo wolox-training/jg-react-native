@@ -13,8 +13,20 @@ function LoginForm({ handleSubmit, messageError }) {
     <React.Fragment>
       {messageError && <ModalError message={messageError} />}
       <form onSubmit={handleSubmit} className={style.login}>
-        <Field {...fieldNames.username} component={customField} validate={[required, email]} />
-        <Field {...fieldNames.password} component={customField} validate={[required, minLength]} />
+        <Field
+          label="Username"
+          name={fieldNames.USERNAME}
+          type="text"
+          component={customField}
+          validate={[required, email]}
+        />
+        <Field
+          label="Password"
+          name={fieldNames.PASSWORD}
+          type="password"
+          component={customField}
+          validate={[required, minLength]}
+        />
         <button className={style.btn} type="submit">
           Sign in
         </button>

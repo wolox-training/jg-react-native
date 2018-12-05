@@ -1,13 +1,6 @@
-const username = {
-  label: 'Username',
-  name: 'username',
-  type: 'text'
+const fieldNames = {
+  USERNAME: 'username',
+  PASSWORD: 'password'
 };
 
-const password = {
-  label: 'Password',
-  name: 'password',
-  type: 'password'
-};
-
-export default { username, password };
+export default fieldNames;
