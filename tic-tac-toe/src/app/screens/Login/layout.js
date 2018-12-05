@@ -5,19 +5,20 @@ import PropTypes from 'prop-types';
 import style from './styles.scss';
 import { required, minLength, email } from './validation';
 import customField from './components/Field';
+import fielNames from './fieldNames';
 
 function LoginForm({ handleSubmit }) {
   return (
     <form onSubmit={handleSubmit} className={style.login}>
       <Field
-        name="username"
+        name={fielNames.USERNAME}
         label="Username"
         component={customField}
         type="text"
         validate={[required, email]}
       />
       <Field
-        name="password"
+        name={fielNames.PASSWORD}
         label="Password"
         component={customField}
         type="password"
