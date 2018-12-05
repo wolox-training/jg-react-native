@@ -6,6 +6,7 @@ import style from './styles.scss';
 import { required, minLength, email } from './validation';
 import customField from './components/Field';
 import ModalError from './components/ModalError';
+import fielNames from './fieldNames';
 
 function LoginForm({ handleSubmit, messageError }) {
   return (
@@ -13,14 +14,14 @@ function LoginForm({ handleSubmit, messageError }) {
       {messageError && <ModalError message={messageError} />}
       <form onSubmit={handleSubmit} className={style.login}>
         <Field
-          name="username"
+          name={fielNames.USERNAME}
           label="Username"
           component={customField}
           type="text"
           validate={[required, email]}
         />
         <Field
-          name="password"
+          name={fielNames.PASSWORD}
           label="Password"
           component={customField}
           type="password"
