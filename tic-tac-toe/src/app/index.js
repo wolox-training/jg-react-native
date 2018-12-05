@@ -11,9 +11,9 @@ import { sessionValidation } from '@config/session';
 import { LOGGEDIN } from '@constants/const';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    sessionValidation(props.dispatch, props.path);
+  componentDidMount() {
+    const { dispatch, path } = this.props;
+    sessionValidation(dispatch, path);
   }
 
   render() {
