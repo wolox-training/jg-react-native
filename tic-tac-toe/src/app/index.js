@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { ConnectedRouter } from 'connected-react-router';
 import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
 import Game from '@screens/Game';
@@ -17,18 +16,16 @@ class App extends Component {
   }
 
   render() {
-    const { history, loggedState } = this.props;
+    const { loggedState } = this.props;
     return (
-      <ConnectedRouter history={history}>
-        <React.Fragment>
-          {loggedState === LOGGEDIN && <Topbar />}
-          <Switch>
-            <Route exact path="/" component={Login} />
-            <Route path="/game" component={Game} />
-            <Route path="/profile" component={Profile} />
-          </Switch>
-        </React.Fragment>
-      </ConnectedRouter>
+      <React.Fragment>
+        {loggedState === LOGGEDIN && <Topbar />}
+        <Switch>
+          <Route exact path="/" component={Login} />
+          <Route path="/game" component={Game} />
+          <Route path="/profile" component={Profile} />
+        </Switch>
+      </React.Fragment>
     );
   }
 }
@@ -39,8 +36,7 @@ const mapStateToProps = store => ({
 });
 
 App.propTypes = {
-  history: PropTypes.shape({}),
-  loggedState: PropTypes.string,
+  loggedState: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired
 };
 
