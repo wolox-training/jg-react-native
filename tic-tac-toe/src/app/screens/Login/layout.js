@@ -8,10 +8,10 @@ import customField from './components/Field';
 import ModalError from './components/ModalError';
 import fielNames from './fieldNames';
 
-function LoginForm({ handleSubmit, messageError }) {
+function LoginForm({ handleSubmit, loginState, messageError }) {
   return (
     <React.Fragment>
-      {messageError && <ModalError message={messageError} />}
+      {messageError && loginState && <ModalError message={messageError} />}
       <form onSubmit={handleSubmit} className={style.login}>
         <Field
           name={fielNames.USERNAME}
@@ -37,6 +37,7 @@ function LoginForm({ handleSubmit, messageError }) {
 
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  loginState: PropTypes.bool.isRequired,
   messageError: PropTypes.string
 };
 

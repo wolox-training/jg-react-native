@@ -1,5 +1,5 @@
 import loginActions from '@redux/Login/actions';
-import { JWTUSER, LOGGEDIN, OUT } from '@constants/const';
+import { JWTUSER } from '@constants/const';
 
 function parseJwt(token) {
   const base64Url = token.split('.')[1];

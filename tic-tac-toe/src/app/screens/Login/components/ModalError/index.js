@@ -1,23 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { OUT } from '@constants/const';
-import actionsLogin from '@redux/Login/actions';
 
-import ModalError from './layout';
+import style from './styles.scss';
 
-class ModalErrorContainer extends Component {
-  handleClose = () => {
-    this.props.dispatch(actionsLogin.change(OUT));
-  };
-
-  render() {
-    return <ModalError message={this.props.message} handleClose={this.handleClose} />;
-  }
+function ModalError({ message }) {
+  const title = 'Error!';
+  return (
+    <div className={style.modal}>
+      <div className={style.modalContent}>
+        <span className={style.close} role="button" tabIndex={0}>
+          &times;
+        </span>
+        <h3>{title}</h3>
+        <p>{message}</p>
+      </div>
+    </div>
+  );
 }
 
-ModalErrorContainer.propTypes = {
+ModalError.propTypes = {
   message: PropTypes.string.isRequired
 };
 
-export default connect()(ModalErrorContainer);
+export default ModalError;
