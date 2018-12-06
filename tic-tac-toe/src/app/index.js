@@ -7,19 +7,21 @@ import Login from '@screens/Login';
 import Profile from '@screens/Profile';
 import Topbar from '@components/Topbar';
 import { sessionValidation } from '@config/session';
-import { LOGGEDIN } from '@constants/const';
 
 class App extends Component {
-  componentDidMount() {
-    const { dispatch, path } = this.props;
+  state = {};
+
+  static getDerivedStateFromProps(props) {
+    const { path, dispatch } = props;
     sessionValidation(dispatch, path);
+    return null;
   }
 
   render() {
-    const { loggedState } = this.props;
+    const { loginSuccess } = this.props;
     return (
       <React.Fragment>
-        {loggedState === LOGGEDIN && <Topbar />}
+        {loginSuccess && <Topbar />}
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/game" component={Game} />
@@ -31,13 +33,12 @@ class App extends Component {
 }
 
 const mapStateToProps = store => ({
-  loggedState: store.login.loggedState,
+  loginSuccess: store.login.loginSuccess,
   path: store.router.location.pathname
 });
 
 App.propTypes = {
-  loggedState: PropTypes.string.isRequired,
-  path: PropTypes.string.isRequired
+  loginSuccess: PropTypes.bool.isRequired
 };
 
 export default connect(mapStateToProps)(App);

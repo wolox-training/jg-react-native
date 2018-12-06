@@ -1,6 +1,6 @@
 import { push } from 'connected-react-router';
 import loginActions from '@redux/Login/actions';
-import { JWTUSER, LOGGEDIN, OUT } from '@constants/const';
+import { JWTUSER } from '@constants/const';
 
 export function parseJwt(token) {
   const base64Url = token.split('.')[1];
@@ -9,25 +9,23 @@ export function parseJwt(token) {
 }
 
 export function sessionValidation(dispatch, path) {
-  let state;
+  let state = false;
   const token = sessionStorage.getItem(JWTUSER);
-  if (token) {
+  if (token && token !== 'undefined') {
     const parseToken = parseJwt(token);
     const now = Date.now() / 1000;
-    state = now > parseToken.exp ? OUT : LOGGEDIN;
-  } else {
-    state = OUT;
+    state = parseToken.exp > now;
   }
   dispatch(loginActions.change(state));
-  if (state === OUT) {
+  if (!state) {
     dispatch(push('/'));
-  } else if (state === LOGGEDIN && path === '/') {
+  } else if (state && path === '/') {
     dispatch(push('/game'));
   }
 }
 
 export function endSession(dispatch) {
   sessionStorage.removeItem(JWTUSER);
-  dispatch(loginActions.change(OUT));
+  dispatch(loginActions.change(false));
   dispatch(push('/'));
 }

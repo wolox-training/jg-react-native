@@ -9,10 +9,6 @@ export const linesWin = [
   [0, 4, 8],
   [2, 4, 6]
 ];
-export const ERROR = 'ERROR';
-export const LOADING = 'LOADING';
-export const LOGGEDIN = 'LOGGEDIN';
-export const OUT = 'OUT';
 
 export const JWTUSER = 'jwtUser';
 
