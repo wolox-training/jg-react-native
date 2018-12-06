@@ -14,7 +14,8 @@ const privateActionCreators = {
     sessionStorage.setItem(JWTUSER, token);
     return { type: actions.LOGIN_SUCCESS };
   },
-  loginFailure: message => ({ type: actions.LOGIN_FAILURE, payload: message || serverError })
+  loginFailure: message => ({ type: actions.LOGIN_FAILURE, payload: message || serverError }),
+  change: state => ({ type: state ? actions.LOGIN_SUCCESS : actions.LOGIN_FAILURE })
 };
 
 const actionCreators = {
@@ -22,11 +23,12 @@ const actionCreators = {
     dispatch({ type: actions.LOGIN_LOADING });
     const response = await authService.auth(username, password);
     if (response.ok) {
-      dispatch(privateActionCreators.loginSuccess(response.data.toke));
+      dispatch(privateActionCreators.loginSuccess(response.data.token));
     } else {
       dispatch(privateActionCreators.loginFailure(response.data));
     }
-  }
+  },
+  change: state => privateActionCreators.change(state)
 };
 
 export default actionCreators;
