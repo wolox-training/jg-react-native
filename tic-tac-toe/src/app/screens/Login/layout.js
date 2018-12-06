@@ -2,8 +2,9 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
+import { required, minLength, email } from '@validation';
+
 import style from './styles.scss';
-import { required, minLength, email } from './validation';
 import customField from './components/Field';
 import fielNames from './fieldNames';
 
