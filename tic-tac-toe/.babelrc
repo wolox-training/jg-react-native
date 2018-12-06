@@ -11,7 +11,8 @@
         "@redux": "./src/redux",
         "@constants": "./src/constants",
         "@config": "./src/config",
-        "@services": "./src/services"
+        "@services": "./src/services",
+        "@validation": "./src/validation"
       }
     }]
   ]
