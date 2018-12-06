@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import style from './styles.scss';
+import ModalError from './layout';
 
-function ModalError({ message }) {
-  const title = 'Error!';
-  return (
-    <div className={style.modal}>
-      <div className={style.modalContent}>
-        <span className={style.close} role="button" tabIndex={0}>
-          &times;
-        </span>
-        <h3>{title}</h3>
-        <p>{message}</p>
-      </div>
-    </div>
-  );
+class ModalErrorContainer extends Component {
+  state = {
+    show: true
+  };
+
+  handleClose = () => {
+    this.setState({ show: false });
+  };
+
+  render() {
+    const { message } = this.props;
+    return <ModalError show={this.state.show} message={message} handleClose={this.handleClose} />;
+  }
 }
 
-ModalError.propTypes = {
+ModalErrorContainer.propTypes = {
   message: PropTypes.string.isRequired
 };
 
-export default ModalError;
+export default ModalErrorContainer;

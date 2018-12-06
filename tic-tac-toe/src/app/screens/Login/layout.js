@@ -12,7 +12,7 @@ import fielNames from './fieldNames';
 function LoginForm({ handleSubmit, loginSuccess, messageError }) {
   return (
     <React.Fragment>
-      {messageError && loginSuccess && <ModalError message={messageError} />}
+      {messageError && !loginSuccess && <ModalError message={messageError} />}
       <form onSubmit={handleSubmit} className={style.login}>
         <Field
           name={fielNames.USERNAME}
