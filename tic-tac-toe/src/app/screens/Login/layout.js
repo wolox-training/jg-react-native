@@ -2,25 +2,27 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 
+import { required, minLength, email } from '@validation';
+
 import style from './styles.scss';
-import { required, minLength, email } from './validation';
 import customField from './components/Field';
 import ModalError from './components/ModalError';
+import fielNames from './fieldNames';
 
-function LoginForm({ handleSubmit, messageError }) {
+function LoginForm({ handleSubmit, loginSuccess, messageError }) {
   return (
     <React.Fragment>
-      {messageError && <ModalError message={messageError} />}
+      {messageError && !loginSuccess && <ModalError message={messageError} />}
       <form onSubmit={handleSubmit} className={style.login}>
         <Field
-          name="username"
+          name={fielNames.USERNAME}
           label="Username"
           component={customField}
           type="text"
           validate={[required, email]}
         />
         <Field
-          name="password"
+          name={fielNames.PASSWORD}
           label="Password"
           component={customField}
           type="password"
@@ -36,6 +38,7 @@ function LoginForm({ handleSubmit, messageError }) {
 
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
+  loginSuccess: PropTypes.bool.isRequired,
   messageError: PropTypes.string
 };
 

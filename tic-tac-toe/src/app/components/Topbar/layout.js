@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import style from './styles.scss';
@@ -15,7 +16,6 @@ class Topbar extends Component {
 
   render() {
     const { urls, logoutClick } = this.props;
-    console.log(this.props);
     return (
       <nav className={style.topbar}>
         {this.getLinks(urls)}
@@ -26,5 +26,15 @@ class Topbar extends Component {
     );
   }
 }
+
+Topbar.propTypes = {
+  urls: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired
+    })
+  ),
+  logoutClick: PropTypes.func.isRequired
+};
 
 export default Topbar;
