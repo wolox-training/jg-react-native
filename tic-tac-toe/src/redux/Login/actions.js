@@ -1,11 +1,8 @@
+import { withPostSuccess, withPostFailure, createTypes } from 'redux-recompose';
 import authService from '@services/AuthService';
 import { JWTUSER } from '@constants/const';
 
-export const actions = {
-  LOGIN_LOADING: '@@LOGIN/CLICK_LOGIN',
-  LOGIN_SUCCESS: '@@LOGIN/AUTH',
-  LOGIN_FAILURE: '@@LOGIN/ERROR'
-};
+export const actions = createTypes(['LOGIN', 'LOGIN_SUCCESS', 'LOGIN_FAILURE'], '@LOGIN');
 
 const serverError = 'An error occurred with the server';
 
@@ -19,15 +16,20 @@ const privateActionCreators = {
 };
 
 const actionCreators = {
-  login: (username, password) => async dispatch => {
-    dispatch({ type: actions.LOGIN_LOADING });
-    const response = await authService.auth(username, password);
-    if (response.ok) {
-      dispatch(privateActionCreators.loginSuccess(response.data.token));
-    } else {
-      dispatch(privateActionCreators.loginFailure(response.data));
-    }
-  },
+  login: (username, password) => ({
+    type: actions.LOGIN,
+    target: 'login',
+    service: authService.auth,
+    payload: { username, password },
+    injections: [
+      withPostSuccess((dispatch, response) => {
+        dispatch(privateActionCreators.loginSuccess(response.data.token));
+      }),
+      withPostFailure((dispatch, response) => {
+        dispatch(privateActionCreators.loginFailure(response.data));
+      })
+    ]
+  }),
   change: state => privateActionCreators.change(state)
 };
 

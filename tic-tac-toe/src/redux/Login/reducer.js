@@ -1,3 +1,5 @@
+import { createReducer } from 'redux-recompose';
+
 import { actions } from './actions';
 
 const initialState = {
@@ -6,29 +8,25 @@ const initialState = {
   errorAuthMessage: null
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    case actions.LOGIN_LOADING:
-      return {
-        loginLoading: true,
-        loginSuccess: false,
-        errorAuthMessage: null
-      };
-    case actions.LOGIN_SUCCESS:
-      return {
-        loginLoading: false,
-        loginSuccess: true,
-        errorAuthMessage: null
-      };
-    case actions.LOGIN_FAILURE:
-      return {
-        loginLoading: false,
-        loginSuccess: false,
-        errorAuthMessage: action.payload
-      };
-    default:
-      return state;
-  }
+const reducerDescription = {
+  [actions.LOGIN]: state => ({
+    ...state,
+    loginLoading: true,
+    loginSuccess: false,
+    errorAuthMessage: null
+  }),
+  [actions.LOGIN_SUCCESS]: state => ({
+    ...state,
+    loginLoading: false,
+    loginSuccess: true,
+    errorAuthMessage: null
+  }),
+  [actions.LOGIN_FAILURE]: (state, action) => ({
+    ...state,
+    loginLoading: false,
+    loginSuccess: false,
+    errorAuthMessage: action.payload
+  })
 };
 
-export default reducer;
+export default createReducer(initialState, reducerDescription);
