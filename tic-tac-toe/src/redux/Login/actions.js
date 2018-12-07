@@ -1,29 +1,34 @@
 import authService from '@services/AuthService';
-import { push } from 'connected-react-router';
+import { JWTUSER } from '@constants/const';
 
 export const actions = {
-  CLICK_LOGIN: '@@LOGIN/CLICK_LOGIN',
-  AUTH: '@@LOGIN/AUTH',
-  ERROR: '@@LOGIN/ERROR',
-  CHANGE: '@@LOGIN/CHANGE'
+  LOGIN_LOADING: '@@LOGIN/CLICK_LOGIN',
+  LOGIN_SUCCESS: '@@LOGIN/AUTH',
+  LOGIN_FAILURE: '@@LOGIN/ERROR'
+};
+
+const serverError = 'An error occurred with the server';
+
+const privateActionCreators = {
+  loginSuccess: token => {
+    sessionStorage.setItem(JWTUSER, token);
+    return { type: actions.LOGIN_SUCCESS };
+  },
+  loginFailure: message => ({ type: actions.LOGIN_FAILURE, payload: message || serverError }),
+  change: state => ({ type: state ? actions.LOGIN_SUCCESS : actions.LOGIN_FAILURE })
 };
 
 const actionCreators = {
   login: (username, password) => async dispatch => {
-    dispatch({ type: actions.CLICK_LOGIN });
+    dispatch({ type: actions.LOGIN_LOADING });
     const response = await authService.auth(username, password);
     if (response.ok) {
-      dispatch({ type: actions.AUTH, payload: response.data });
-      dispatch(push('/game'));
+      dispatch(privateActionCreators.loginSuccess(response.data.token));
     } else {
-      dispatch({ type: actions.ERROR, payload: response.problem });
+      dispatch(privateActionCreators.loginFailure(response.data));
     }
   },
-
-  change: state => ({
-    type: actions.CHANGE,
-    payload: state
-  })
+  change: state => privateActionCreators.change(state)
 };
 
 export default actionCreators;

@@ -1,15 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { createBrowserHistory } from 'history';
+import { ConnectedRouter } from 'connected-react-router';
 
 import './scss/index.scss';
 
-import store, { history } from './redux/store';
+import createStore from './redux/store';
 import App from './app';
+
+const history = createBrowserHistory();
+const store = createStore(history);
+
+store.subscribe(() => {
+  console.log(store.getState());
+});
 
 ReactDOM.render(
   <Provider store={store}>
-    <App history={history} />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 );

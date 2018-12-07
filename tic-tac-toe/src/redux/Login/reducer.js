@@ -1,28 +1,30 @@
-import { LOGGEDIN, NOAUTH, LOADING, OUT, ERROR } from '@constants/const';
-
 import { actions } from './actions';
 
 const initialState = {
-  loggedEstate: OUT
+  loginLoading: false,
+  loginSuccess: false,
+  errorAuthMessage: null
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case actions.CLICK_LOGIN:
+    case actions.LOGIN_LOADING:
       return {
-        loggedEstate: LOADING
+        loginLoading: true,
+        loginSuccess: false,
+        errorAuthMessage: null
       };
-    case actions.AUTH:
+    case actions.LOGIN_SUCCESS:
       return {
-        loggedEstate: action.payload ? LOGGEDIN : NOAUTH
+        loginLoading: false,
+        loginSuccess: true,
+        errorAuthMessage: null
       };
-    case actions.ERROR:
+    case actions.LOGIN_FAILURE:
       return {
-        loggedEstate: ERROR
-      };
-    case actions.CHANGE:
-      return {
-        loggedEstate: action.payload
+        loginLoading: false,
+        loginSuccess: false,
+        errorAuthMessage: action.payload
       };
     default:
       return state;
