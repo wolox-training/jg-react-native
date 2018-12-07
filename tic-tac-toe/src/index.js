@@ -4,13 +4,12 @@ import { Provider } from 'react-redux';
 
 import './scss/index.scss';
 
-import store from './redux/store';
-import Login from './app/screens/Login';
-//import Game from './app/screens/Game';
+import store, { history } from './redux/store';
+import App from './app';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Login />
+    <App history={history} />
   </Provider>,
   document.getElementById('root')
 );
