@@ -1,6 +1,7 @@
 export const actions = {
   CLICK_SQUARE: '@@GAME/CLICK_SQUARE',
-  CLICK_STEP: '@@GAME/CLICK_STEP'
+  CLICK_STEP: '@@GAME/CLICK_STEP',
+  CLEAN: '@@GAME/CLEAN'
 };
 
 export const clickSquare = squares => ({
@@ -12,4 +13,7 @@ export const clickStep = step => ({
   payload: {
     step
   }
+});
+export const cleanGame = () => ({
+  type: actions.CLEAN
 });

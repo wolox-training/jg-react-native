@@ -23,3 +23,9 @@ export function sessionValidation(dispatch, path) {
     dispatch(push('/game'));
   }
 }
+
+export function endSession(dispatch) {
+  sessionStorage.removeItem(JWTUSER);
+  dispatch(loginActions.change(false));
+  dispatch(push('/'));
+}

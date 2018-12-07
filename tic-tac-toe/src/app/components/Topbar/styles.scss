@@ -1,0 +1,25 @@
+$grey: #C4C4C4;
+$white: #FFF;
+$box-shadow: 0 3px 10px $grey;
+
+.topbar {
+  background-color: $white;
+  box-shadow: $box-shadow;
+  left: 0;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.logout {
+  float: right;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.link {
+  padding: 0 10px;
+  text-decoration: none;
+}

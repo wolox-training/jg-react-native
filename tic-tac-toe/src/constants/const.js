@@ -11,3 +11,5 @@ export const linesWin = [
 ];
 
 export const JWTUSER = 'jwtUser';
+
+export const routes = [{ src: '/game', name: 'Game' }, { src: '/profile', name: 'Profile' }];

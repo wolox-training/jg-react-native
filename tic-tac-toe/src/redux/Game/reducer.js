@@ -20,6 +20,8 @@ const reducer = (state = initialState, action) => {
         stepNumber: action.payload.step,
         xIsNext: action.payload.step % 2 === 0
       };
+    case actions.CLEAN:
+      return initialState;
     default:
       return state;
   }
