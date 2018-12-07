@@ -5,7 +5,8 @@ import style from './styles.scss';
 
 function ModalError({ message, handleClose, show }) {
   const title = 'Error!';
-  const showHideClassName = show ? [style.show, style.modal].join(' ') : [style.hide, style.modal].join(' ');
+  const showHideClassName =
+    show !== 'hide' ? [style.show, style.modal].join(' ') : [style.hide, style.modal].join(' ');
   return (
     <div className={showHideClassName}>
       <div className={style.modalContent}>
@@ -22,7 +23,7 @@ function ModalError({ message, handleClose, show }) {
 ModalError.propTypes = {
   message: PropTypes.string.isRequired,
   handleClose: PropTypes.func.isRequired,
-  show: PropTypes.bool.isRequired
+  show: PropTypes.string.isRequired
 };
 
 export default ModalError;

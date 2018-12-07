@@ -6,16 +6,17 @@ import ModalError from './layout';
 
 class ModalErrorContainer extends Component {
   state = {
-    show: true
+    show: this.props.loginError
   };
 
   handleClose = () => {
-    this.setState({ show: false });
+    this.setState({ show: 'hide' });
   };
 
   render() {
     const { loginError } = this.props;
     const message = errorMessage[loginError];
+    console.log(this.state.show)
     return <ModalError show={this.state.show} message={message} handleClose={this.handleClose} />;
   }
 }
