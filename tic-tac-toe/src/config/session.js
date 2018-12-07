@@ -1,5 +1,4 @@
 import { push } from 'connected-react-router';
-import loginActions from '@redux/Login/actions';
 import { JWTUSER } from '@constants/const';
 
 export function parseJwt(token) {
@@ -17,6 +16,7 @@ export function sessionValidation(dispatch, path) {
     state = parseToken.exp > now;
   }
   if (!state) {
+    sessionStorage.removeItem(JWTUSER);
     dispatch(push('/'));
   } else if (state && path === '/') {
     dispatch(push('/game'));
@@ -25,6 +25,5 @@ export function sessionValidation(dispatch, path) {
 
 export function endSession(dispatch) {
   sessionStorage.removeItem(JWTUSER);
-  dispatch(loginActions.change(false));
   dispatch(push('/'));
 }

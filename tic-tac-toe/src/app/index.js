@@ -18,10 +18,10 @@ class App extends Component {
   }
 
   render() {
-    const { login } = this.props;
+    const token = sessionStorage.getItem('jwtUser');
     return (
       <React.Fragment>
-        {login && <Topbar />}
+        {token && <Topbar />}
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/game" component={Game} />
@@ -36,9 +36,5 @@ const mapStateToProps = store => ({
   login: store.login.login,
   path: store.router.location.pathname
 });
-
-App.propTypes = {
-  login: PropTypes.string
-};
 
 export default connect(mapStateToProps)(App);
