@@ -33,7 +33,7 @@ Topbar.propTypes = {
       src: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired
     })
-  ),
+  ).isRequired,
   logoutClick: PropTypes.func.isRequired
 };
 

@@ -17,15 +17,15 @@ function LoginForm({ handleSubmit, loginSuccess, messageError }) {
         <Field
           name={fielNames.USERNAME}
           label="Username"
-          component={customField}
           type="text"
+          component={customField}
           validate={[required, email]}
         />
         <Field
           name={fielNames.PASSWORD}
           label="Password"
-          component={customField}
           type="password"
+          component={customField}
           validate={[required, minLength]}
         />
         <button className={style.btn} type="submit">

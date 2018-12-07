@@ -1,9 +1,9 @@
 {
   "users": [
-    { "id": 1, "name": "Jhon", "age": "22", "username": "jhon", "password": "qwerty"},
-    { "id": 2, "name": "Adam", "age": "20", "username": "adam", "password": "1234"},
-    { "id": 3, "name": "Luke", "age": "25", "username": "luke", "password": "admin"},
-    { "id": 4, "name": "Jeff", "age": "21", "username": "jeff", "password": "abcd"},
-    { "id": 4, "name": "Jeymar", "age": "23", "username": "jeymarson.garcia@wolox.co", "password": "123456789"}
+    { "id": 1, "name": "Jhon", "lastname":"Smith", "age": "22", "username": "jhon", "password": "qwerty"},
+    { "id": 2, "name": "Adam", "lastname":"Magic","age": "20", "username": "adam", "password": "1234"},
+    { "id": 3, "name": "Luke", "lastname":"Doe","age": "25", "username": "luke", "password": "admin"},
+    { "id": 4, "name": "Jeff", "lastname":"Simpson","age": "21", "username": "jeff", "password": "abcd"},
+    { "id": 4, "name": "Jeymar", "lastname":"Garcia","age": "23", "username": "jeymarson.garcia@wolox.co", "password": "123456789"}
   ]
 }
