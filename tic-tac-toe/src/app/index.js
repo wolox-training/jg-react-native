@@ -18,10 +18,10 @@ class App extends Component {
   }
 
   render() {
-    const { loginSuccess } = this.props;
+    const { login } = this.props;
     return (
       <React.Fragment>
-        {loginSuccess && <Topbar />}
+        {login && <Topbar />}
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/game" component={Game} />
@@ -33,12 +33,12 @@ class App extends Component {
 }
 
 const mapStateToProps = store => ({
-  loginSuccess: store.login.loginSuccess,
+  login: store.login.login,
   path: store.router.location.pathname
 });
 
 App.propTypes = {
-  loginSuccess: PropTypes.bool.isRequired
+  login: PropTypes.string
 };
 
 export default connect(mapStateToProps)(App);

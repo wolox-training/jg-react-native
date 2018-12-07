@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { errorMessage } from '@constants/const';
 
 import ModalError from './layout';
 
@@ -13,13 +14,14 @@ class ModalErrorContainer extends Component {
   };
 
   render() {
-    const { message } = this.props;
+    const { loginError } = this.props;
+    const message = errorMessage[loginError];
     return <ModalError show={this.state.show} message={message} handleClose={this.handleClose} />;
   }
 }
 
 ModalErrorContainer.propTypes = {
-  message: PropTypes.string.isRequired
+  loginError: PropTypes.string.isRequired
 };
 
 export default ModalErrorContainer;

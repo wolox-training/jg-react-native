@@ -24,7 +24,7 @@ server.get('/auth', (req, res) => {
       const token = jwt.sign({ user: result }, config.secret, {
         expiresIn: 86400
       });
-      res.status(200).jsonp({ auth: true, token });
+      res.status(200).jsonp(token);
     } else {
       res.status(404).jsonp('User or password not found');
     }

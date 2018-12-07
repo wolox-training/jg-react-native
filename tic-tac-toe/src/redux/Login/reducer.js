@@ -1,32 +1,14 @@
-import { createReducer } from 'redux-recompose';
+import { createReducer, completeState, completeReducer } from 'redux-recompose';
+import Immutable from 'seamless-immutable';
 
 import { actions } from './actions';
 
 const initialState = {
-  loginLoading: false,
-  loginSuccess: false,
-  errorAuthMessage: null
+  login: null
 };
 
 const reducerDescription = {
-  [actions.LOGIN]: state => ({
-    ...state,
-    loginLoading: true,
-    loginSuccess: false,
-    errorAuthMessage: null
-  }),
-  [actions.LOGIN_SUCCESS]: state => ({
-    ...state,
-    loginLoading: false,
-    loginSuccess: true,
-    errorAuthMessage: null
-  }),
-  [actions.LOGIN_FAILURE]: (state, action) => ({
-    ...state,
-    loginLoading: false,
-    loginSuccess: false,
-    errorAuthMessage: action.payload
-  })
+  primaryActions: [actions.LOGIN]
 };
 
-export default createReducer(initialState, reducerDescription);
+export default createReducer(Immutable(completeState(initialState)), completeReducer(reducerDescription));

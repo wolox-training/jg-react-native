@@ -12,6 +12,10 @@ import App from './app';
 const history = createBrowserHistory();
 const store = createStore(history);
 
+store.subscribe(() => {
+  console.log(store.getState())
+})
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

@@ -16,7 +16,6 @@ export function sessionValidation(dispatch, path) {
     const now = Date.now() / 1000;
     state = parseToken.exp > now;
   }
-  dispatch(loginActions.change(state));
   if (!state) {
     dispatch(push('/'));
   } else if (state && path === '/') {

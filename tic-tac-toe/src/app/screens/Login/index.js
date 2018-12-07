@@ -12,24 +12,19 @@ class LoginContainer extends Component {
   };
 
   render() {
-    return (
-      <Login
-        onSubmit={this.onSubmit}
-        loginSuccess={this.props.loginSuccess}
-        messageError={this.props.errorAuthMessage}
-      />
-    );
+    const { loginError, loginLoading } = this.props;
+    return <Login onSubmit={this.onSubmit} loginError={loginError} loginLoading={loginLoading} />;
   }
 }
 
 const mapStateToProps = store => ({
-  errorAuthMessage: store.login.errorAuthMessage,
-  loginSuccess: store.login.loginSuccess
+  loginError: store.login.loginError,
+  loginLoading: store.login.loginLoading
 });
 
 LoginContainer.propTypes = {
-  errorAuthMessage: PropTypes.string,
-  loginSuccess: PropTypes.bool.isRequired
+  loginError: PropTypes.string,
+  loginLoading: PropTypes.bool
 };
 
 export default connect(mapStateToProps)(LoginContainer);
