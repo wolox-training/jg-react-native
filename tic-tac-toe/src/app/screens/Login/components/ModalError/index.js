@@ -5,24 +5,16 @@ import { errorMessage } from '@constants/const';
 import ModalError from './layout';
 
 class ModalErrorContainer extends Component {
-  state = {
-    show: this.props.loginError
-  };
-
-  handleClose = () => {
-    this.setState({ show: 'hide' });
-  };
-
   render() {
-    const { loginError } = this.props;
+    const { loginError, handleClose } = this.props;
     const message = errorMessage[loginError];
-    console.log(this.state.show)
-    return <ModalError show={this.state.show} message={message} handleClose={this.handleClose} />;
+    return <ModalError message={message} handleClose={handleClose} />;
   }
 }
 
 ModalErrorContainer.propTypes = {
-  loginError: PropTypes.string.isRequired
+  loginError: PropTypes.string.isRequired,
+  handleClose: PropTypes.func.isRequired
 };
 
 export default ModalErrorContainer;

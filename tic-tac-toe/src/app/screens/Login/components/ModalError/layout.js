@@ -3,12 +3,10 @@ import PropTypes from 'prop-types';
 
 import style from './styles.scss';
 
-function ModalError({ message, handleClose, show }) {
+function ModalError({ message, handleClose }) {
   const title = 'Error!';
-  const showHideClassName =
-    show !== 'hide' ? [style.show, style.modal].join(' ') : [style.hide, style.modal].join(' ');
   return (
-    <div className={showHideClassName}>
+    <div className={style.modal}>
       <div className={style.modalContent}>
         <span className={style.close} role="button" tabIndex={0} onClick={handleClose}>
           &times;
@@ -22,8 +20,7 @@ function ModalError({ message, handleClose, show }) {
 
 ModalError.propTypes = {
   message: PropTypes.string.isRequired,
-  handleClose: PropTypes.func.isRequired,
-  show: PropTypes.string.isRequired
+  handleClose: PropTypes.func.isRequired
 };
 
 export default ModalError;

@@ -9,10 +9,10 @@ import customField from './components/Field';
 import ModalError from './components/ModalError';
 import fielNames from './fieldNames';
 
-function LoginForm({ handleSubmit, loginError, loginLoading }) {
+function LoginForm({ handleSubmit, loginError, loginLoading, showModal, handleCloseModal }) {
   return (
     <React.Fragment>
-      {loginError && <ModalError loginError={loginError} />}
+      {showModal && loginError && <ModalError loginError={loginError} handleClose={handleCloseModal} />}
       <form onSubmit={handleSubmit} className={style.login}>
         <Field
           name={fielNames.USERNAME}
@@ -39,7 +39,9 @@ function LoginForm({ handleSubmit, loginError, loginLoading }) {
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   loginError: PropTypes.string,
-  loginLoading: PropTypes.bool
+  loginLoading: PropTypes.bool,
+  showModal: PropTypes.bool.isRequired,
+  handleCloseModal: PropTypes.func.isRequired
 };
 
 export default reduxForm({

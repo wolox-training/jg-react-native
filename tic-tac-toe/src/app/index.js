@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
 import Game from '@screens/Game';

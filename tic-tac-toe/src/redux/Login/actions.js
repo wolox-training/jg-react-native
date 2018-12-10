@@ -1,4 +1,4 @@
-import { withPostSuccess, createTypes, completeTypes } from 'redux-recompose';
+import { withSuccess, createTypes, completeTypes } from 'redux-recompose';
 import authService from '@services/AuthService';
 import { JWTUSER } from '@constants/const';
 
@@ -11,8 +11,9 @@ const actionCreators = {
     service: authService.auth,
     payload: { username, password },
     injections: [
-      withPostSuccess((dispatch, response) => {
+      withSuccess((dispatch, response) => {
         sessionStorage.setItem(JWTUSER, response.data);
+        dispatch({ type: actions.LOGIN_SUCCESS, target: 'login', payload: response.data });
       })
     ]
   })
