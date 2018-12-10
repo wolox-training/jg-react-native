@@ -11,7 +11,7 @@ class LoginContainer extends Component {
   };
 
   onSubmit = values => {
-    this.setState(prevState => ({ show: !prevState.show }));
+    this.setState({ show: true });
     const { username, password } = values;
     this.props.dispatch(loginActions.login(username, password));
   };
