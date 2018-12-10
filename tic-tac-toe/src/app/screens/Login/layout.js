@@ -9,7 +9,7 @@ import customField from './components/Field';
 import ModalError from './components/ModalError';
 import fielNames from './fieldNames';
 
-function LoginForm({ handleSubmit, loginError, loginLoading, showModal, handleCloseModal }) {
+function LoginForm({ handleSubmit, loginError, loading, showModal, handleCloseModal }) {
   return (
     <React.Fragment>
       {showModal && loginError && <ModalError loginError={loginError} handleClose={handleCloseModal} />}
@@ -28,7 +28,7 @@ function LoginForm({ handleSubmit, loginError, loginLoading, showModal, handleCl
           component={customField}
           validate={[required, minLength]}
         />
-        <button className={style.btn} type="submit" disabled={loginLoading}>
+        <button className={style.btn} type="submit" disabled={loading}>
           Sign in
         </button>
       </form>
@@ -39,7 +39,7 @@ function LoginForm({ handleSubmit, loginError, loginLoading, showModal, handleCl
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   loginError: PropTypes.string,
-  loginLoading: PropTypes.bool,
+  loading: PropTypes.bool,
   showModal: PropTypes.bool.isRequired,
   handleCloseModal: PropTypes.func.isRequired
 };
