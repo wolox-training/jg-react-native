@@ -3,11 +3,11 @@ import PropTypes  from 'prop-types';
 import { View, ScrollView, StyleSheet, TextInput, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
+import { Content } from 'native-base';
 
 import Title from '../../components/Title';
 import Footer from '../../components/Footer';
-
-//import { actionCreators } from '../../redux/Todo/actions';
+import Input from '../../components/Input';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,16 +20,12 @@ const mapStateToProps = (state) => ({
 })
 
 class App extends Component {
-
-  static propTypes = {
-    items: PropTypes.array,
-    dispatch: PropTypes.func,
-  }
-
   render() {
     return (
       <View style={styles.container}>
         <Title />
+        <Input />
+        <Content />
         <Footer />
       </View>
     )
