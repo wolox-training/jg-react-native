@@ -9,3 +9,4 @@
 ## System ##
 .DS_Store
 finger-exercises/*/node_modules/
+todolist/node_modules/
