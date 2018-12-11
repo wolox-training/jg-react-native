@@ -8,7 +8,6 @@ const middleware = [ thunk ];
 
 if (process.env.NODE_ENV === 'development') {
   middleware.push(createLogger());
-  require('../config/ReactotronConfig');
 }
 
 export default () => {

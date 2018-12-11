@@ -1,26 +1,42 @@
-import React, { Component, PropTypes } from 'react'
-import { StyleSheet } from 'react-native'
-import { Container, Header, Content, Footer, FooterTab, Button, Text } from 'native-base';
+import React, { Component } from 'react'
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native'
+import { connect } from 'react-redux';
+
+import { actionCreators } from '../../redux/Todo/actions';
 
 const styles = StyleSheet.create({
   footer: {
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    flexDirection: 'column',
+    height: 50
   },
-  footerText: {
-    color: 'red'
+  footerButton: {
+    alignItems: 'center',
+    backgroundColor: 'white',
+    height: 50,
+    justifyContent: 'center'
+  },
+  textFooterButton: {
+    color: '#CB4335',
+    fontSize: 14,
+    fontWeight: "bold"
   }
-})
+});
 
-export default class FooterComponent extends Component {
+class FooterComponent extends Component {
+  removeItems = () => {
+    this.props.dispatch(actionCreators.removeCompletedItems());
+  };
+
   render() {
     return (
-      <Footer>
-        <FooterTab style={styles.footer}>
-          <Button>
-            <Text style={styles.footerText}>Remove completed items</Text>
-          </Button>
-        </FooterTab>
-      </Footer>
+      <View style={styles.footer}>
+        <TouchableOpacity style={styles.footerButton} onPress={this.removeItems}>
+          <Text style={styles.textFooterButton}>{'Remove completed items'}</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
+
+export default connect()(FooterComponent);

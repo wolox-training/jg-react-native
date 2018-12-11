@@ -9,7 +9,6 @@
   "dependencies": {
     "lodash": "^4.17.11",
     "metro-react-native-babel-preset": "^0.50.0",
-    "native-base": "^2.8.1",
     "prop-types": "^15.6.2",
     "react": "16.6.1",
     "react-native": "0.57.7",

@@ -1,18 +1,27 @@
-import React, { Component } from 'react'
-import { Container, Header, Left, Body, Right, Title } from 'native-base';
+import React from 'react'
+import { View, StyleSheet, Text } from 'react-native';
 
-
-export default class TitleComponent extends Component {
-
-  render() {
-    return (
-      <Header>
-        <Left />
-        <Body>
-          <Title>Todo List</Title>
-        </Body>
-        <Right />
-      </Header>
-    );
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    backgroundColor: '#87CEEB',
+    flexDirection: 'column',
+    height: 50,
+    justifyContent: 'center'
+  },
+  titleText: {
+    color: "#FFF",
+    fontSize: 18,
+    fontWeight: "bold"
   }
-}
+});
+
+function TitleComponent() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titleText}>{'Todo List'}</Text>
+    </View>
+  );
+};
+
+export default TitleComponent;

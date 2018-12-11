@@ -1,6 +1,8 @@
 import Reactotron from 'reactotron-react-native';
 
-Reactotron
+
+export default function config() {
+  Reactotron
   .configure()
-  .useReactNative()
   .connect()
+}

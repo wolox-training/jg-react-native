@@ -1,5 +1,5 @@
-import React, { Component, PropTypes } from 'react'
-import { TextInput, View, StyleSheet } from 'react-native'
+import React, { Component } from 'react';
+import { TextInput } from 'react-native';
 import { connect } from 'react-redux';
 
 import { actionCreators } from '../../redux/Todo/actions';
@@ -9,15 +9,24 @@ class Input extends Component {
     value: null
   };
 
+  generateId = () => {
+    return '_' + Math.random().toString(36).substr(2, 9);
+  };
+
   submit = () => {
     const { value } = this.state;
-    this.props.dispatch(actionCreators.addItem(value));
+    const item = {
+      id: this.generateId(),
+      name: value,
+      completed: false
+    };
+    this.props.dispatch(actionCreators.addItem(item));
     this.setState({ value: null });
   };
 
   change = value => {
     this.setState({ value });
-  }
+  };
 
   render() {
     return <TextInput
@@ -26,7 +35,8 @@ class Input extends Component {
       value={this.state.value}
       onSubmitEditing={this.submit}
       onChangeText={this.change}
-    />
+      blurOnSubmit={false}
+    />;
   }
 }
 
