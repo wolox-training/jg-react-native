@@ -1,34 +1,22 @@
+import { withSuccess, createTypes, completeTypes } from 'redux-recompose';
 import authService from '@services/AuthService';
 import { JWTUSER } from '@constants/const';
 
-export const actions = {
-  LOGIN_LOADING: '@@LOGIN/CLICK_LOGIN',
-  LOGIN_SUCCESS: '@@LOGIN/AUTH',
-  LOGIN_FAILURE: '@@LOGIN/ERROR'
-};
-
-const serverError = 'An error occurred with the server';
-
-const privateActionCreators = {
-  loginSuccess: token => {
-    sessionStorage.setItem(JWTUSER, token);
-    return { type: actions.LOGIN_SUCCESS };
-  },
-  loginFailure: message => ({ type: actions.LOGIN_FAILURE, payload: message || serverError }),
-  change: state => ({ type: state ? actions.LOGIN_SUCCESS : actions.LOGIN_FAILURE })
-};
+export const actions = createTypes(completeTypes(['LOGIN']), '@@LOGIN');
 
 const actionCreators = {
-  login: (username, password) => async dispatch => {
-    dispatch({ type: actions.LOGIN_LOADING });
-    const response = await authService.auth(username, password);
-    if (response.ok) {
-      dispatch(privateActionCreators.loginSuccess(response.data.token));
-    } else {
-      dispatch(privateActionCreators.loginFailure(response.data));
-    }
-  },
-  change: state => privateActionCreators.change(state)
+  login: (username, password) => ({
+    type: actions.LOGIN,
+    target: 'login',
+    service: authService.auth,
+    payload: { username, password },
+    injections: [
+      withSuccess((dispatch, response) => {
+        sessionStorage.setItem(JWTUSER, response.data);
+        dispatch({ type: actions.LOGIN_SUCCESS, target: 'login', payload: response.data });
+      })
+    ]
+  })
 };
 
 export default actionCreators;

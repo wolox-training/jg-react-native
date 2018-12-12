@@ -6,30 +6,42 @@ import loginActions from '@redux/Login/actions';
 import Login from './layout';
 
 class LoginContainer extends Component {
+  state = {
+    show: true
+  };
+
   onSubmit = values => {
+    this.setState({ show: true });
     const { username, password } = values;
     this.props.dispatch(loginActions.login(username, password));
   };
 
+  closeModal = () => {
+    this.setState({ show: false });
+  };
+
   render() {
+    const { loginError, loginLoading } = this.props;
     return (
       <Login
         onSubmit={this.onSubmit}
-        loginSuccess={this.props.loginSuccess}
-        messageError={this.props.errorAuthMessage}
+        loginError={loginError}
+        showModal={this.state.show}
+        handleCloseModal={this.closeModal}
+        loginLoading={loginLoading}
       />
     );
   }
 }
 
 const mapStateToProps = store => ({
-  errorAuthMessage: store.login.errorAuthMessage,
-  loginSuccess: store.login.loginSuccess
+  loginError: store.login.loginError,
+  loginLoading: store.login.loginLoading
 });
 
 LoginContainer.propTypes = {
-  errorAuthMessage: PropTypes.string,
-  loginSuccess: PropTypes.bool.isRequired
+  loginError: PropTypes.string,
+  loginLoading: PropTypes.bool
 };
 
 export default connect(mapStateToProps)(LoginContainer);

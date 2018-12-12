@@ -13,3 +13,8 @@ export const linesWin = [
 export const JWTUSER = 'jwtUser';
 
 export const routes = [{ src: '/game', name: 'Game' }, { src: '/profile', name: 'Profile' }];
+
+export const errorMessage = {
+  NETWORK_ERROR: 'An error occurred with the server',
+  CLIENT_ERROR: 'User or password incorrect'
+};
