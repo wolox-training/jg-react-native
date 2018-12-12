@@ -1,27 +1,9 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, TouchableOpacity, Text } from 'react-native'
+import { View, TouchableOpacity, Text } from 'react-native'
 import { connect } from 'react-redux';
 
+import styles from './styles';
 import { actionCreators } from '../../redux/Todo/actions';
-
-const styles = StyleSheet.create({
-  footer: {
-    backgroundColor: 'white',
-    flexDirection: 'column',
-    height: 50
-  },
-  footerButton: {
-    alignItems: 'center',
-    backgroundColor: 'white',
-    height: 50,
-    justifyContent: 'center'
-  },
-  textFooterButton: {
-    color: '#CB4335',
-    fontSize: 14,
-    fontWeight: "bold"
-  }
-});
 
 class FooterComponent extends Component {
   removeItems = () => {

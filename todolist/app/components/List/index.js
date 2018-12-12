@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import PropTypes from 'prop-types';
 
 import Checkbox from '../Checkbox';
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 10
-  }
-})
+import styles from './styles';
 
 class List extends Component {
   getRows = () => {

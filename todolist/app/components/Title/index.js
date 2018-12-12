@@ -1,20 +1,7 @@
 import React from 'react'
-import { View, StyleSheet, Text } from 'react-native';
+import { View, Text } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: '#87CEEB',
-    flexDirection: 'column',
-    height: 50,
-    justifyContent: 'center'
-  },
-  titleText: {
-    color: "#FFF",
-    fontSize: 18,
-    fontWeight: "bold"
-  }
-});
+import styles from './styles';
 
 function TitleComponent() {
   return (

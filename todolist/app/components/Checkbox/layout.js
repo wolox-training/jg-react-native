@@ -1,29 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, StyleSheet, TouchableOpacity, CheckBox } from 'react-native';
+import { View, Text, TouchableOpacity, CheckBox } from 'react-native';
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  rightContainer: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    justifyContent: 'center'
-  },
-  item: {
-    color: 'black',
-    height: 44,
-    padding: 10
-  },
-  removeButton: {
-    padding: 10
-  },
-  textRemoveButton: {
-    color: '#CB4335',
-  }
-});
+import styles from './styles';
 
 function CheckboxLayout({ completed, name, toggleComplete, handleRemove }) {
   return (
