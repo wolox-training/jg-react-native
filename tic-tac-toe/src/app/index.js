@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router';
 import { connect } from 'react-redux';
 import Game from '@screens/Game';
@@ -18,10 +17,10 @@ class App extends Component {
   }
 
   render() {
-    const { loginSuccess } = this.props;
+    const token = sessionStorage.getItem('jwtUser');
     return (
       <React.Fragment>
-        {loginSuccess && <Topbar />}
+        {token && <Topbar />}
         <Switch>
           <Route exact path="/" component={Login} />
           <Route path="/game" component={Game} />
@@ -33,12 +32,8 @@ class App extends Component {
 }
 
 const mapStateToProps = store => ({
-  loginSuccess: store.login.loginSuccess,
+  login: store.login.login,
   path: store.router.location.pathname
 });
-
-App.propTypes = {
-  loginSuccess: PropTypes.bool.isRequired
-};
 
 export default connect(mapStateToProps)(App);

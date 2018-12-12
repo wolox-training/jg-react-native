@@ -2,34 +2,47 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import loginActions from '@redux/Login/actions';
+import Loader from '@components/Loader';
 
 import Login from './layout';
 
 class LoginContainer extends Component {
+  state = {
+    show: true
+  };
+
   onSubmit = values => {
+    this.setState({ show: true });
     const { username, password } = values;
     this.props.dispatch(loginActions.login(username, password));
   };
 
+  closeModal = () => {
+    this.setState({ show: false });
+  };
+
   render() {
-    return (
-      <Login
-        onSubmit={this.onSubmit}
-        loginSuccess={this.props.loginSuccess}
-        messageError={this.props.errorAuthMessage}
-      />
-    );
+    const propsLogin = {
+      loginError: this.props.loginError,
+      loading: this.props.loginLoading,
+      onSubmit: this.onSubmit,
+      handleCloseModal: this.closeModal,
+      showModal: this.state.show
+    };
+    const loginChild = <Login {...propsLogin} />;
+    const LoginLoaderContainer = Loader(loginChild);
+    return <LoginLoaderContainer />;
   }
 }
 
 const mapStateToProps = store => ({
-  errorAuthMessage: store.login.errorAuthMessage,
-  loginSuccess: store.login.loginSuccess
+  loginError: store.login.loginError,
+  loginLoading: store.login.loginLoading
 });
 
 LoginContainer.propTypes = {
-  errorAuthMessage: PropTypes.string,
-  loginSuccess: PropTypes.bool.isRequired
+  loginError: PropTypes.string,
+  loginLoading: PropTypes.bool
 };
 
 export default connect(mapStateToProps)(LoginContainer);

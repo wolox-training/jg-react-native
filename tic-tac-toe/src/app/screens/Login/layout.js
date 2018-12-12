@@ -9,10 +9,10 @@ import customField from './components/Field';
 import ModalError from './components/ModalError';
 import fielNames from './fieldNames';
 
-function LoginForm({ handleSubmit, loginSuccess, messageError }) {
+function LoginForm({ handleSubmit, loginError, loading, showModal, handleCloseModal }) {
   return (
     <React.Fragment>
-      {messageError && !loginSuccess && <ModalError message={messageError} />}
+      {showModal && loginError && <ModalError loginError={loginError} handleClose={handleCloseModal} />}
       <form onSubmit={handleSubmit} className={style.login}>
         <Field
           name={fielNames.USERNAME}
@@ -28,7 +28,7 @@ function LoginForm({ handleSubmit, loginSuccess, messageError }) {
           component={customField}
           validate={[required, minLength]}
         />
-        <button className={style.btn} type="submit">
+        <button className={style.btn} type="submit" disabled={loading}>
           Sign in
         </button>
       </form>
@@ -38,8 +38,10 @@ function LoginForm({ handleSubmit, loginSuccess, messageError }) {
 
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  loginSuccess: PropTypes.bool.isRequired,
-  messageError: PropTypes.string
+  loginError: PropTypes.string,
+  loading: PropTypes.bool,
+  showModal: PropTypes.bool.isRequired,
+  handleCloseModal: PropTypes.func.isRequired
 };
 
 export default reduxForm({

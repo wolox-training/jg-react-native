@@ -17,7 +17,9 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-form": "^7.2.3",
+    "redux-recompose": "^2.1.0",
     "redux-thunk": "^2.3.0",
+    "seamless-immutable": "^7.1.4",
     "wolox-react-scripts": "1.2.1"
   },
   "scripts": {
