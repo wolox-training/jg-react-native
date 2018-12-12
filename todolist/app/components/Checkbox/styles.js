@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { BLACK, ITEM_HEIGHT, PADDING_ITEMS, RED } from '../../constants/styleConst';
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -11,15 +13,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   item: {
-    color: 'black',
-    height: 44,
-    padding: 10
+    color: BLACK,
+    height: ITEM_HEIGHT,
+    padding: PADDING_ITEMS
   },
   removeButton: {
-    padding: 10
+    padding: PADDING_ITEMS
   },
   textRemoveButton: {
-    color: '#CB4335',
+    color: RED,
   }
 });
 

@@ -3,20 +3,17 @@ import { TextInput } from 'react-native';
 import { connect } from 'react-redux';
 
 import { actionCreators } from '../../redux/Todo/actions';
+import { generateId } from '../../utils/numberUtils';
 
 class Input extends Component {
   state ={
     value: null
   };
 
-  generateId = () => {
-    return '_' + Math.random().toString(36).substr(2, 9);
-  };
-
   submit = () => {
     const { value } = this.state;
     const item = {
-      id: this.generateId(),
+      id: generateId(),
       name: value,
       completed: false
     };

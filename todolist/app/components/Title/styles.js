@@ -1,17 +1,19 @@
 import { StyleSheet } from 'react-native';
 
+import { BLUE, HEIGHT_HEADER_FOOTER, WHITE, FONT_SIZE_TITLE } from '../../constants/styleConst';
+
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: '#87CEEB',
+    backgroundColor: BLUE,
     flexDirection: 'column',
-    height: 50,
+    height: HEIGHT_HEADER_FOOTER,
     justifyContent: 'center'
   },
   titleText: {
-    color: "#FFF",
-    fontSize: 18,
-    fontWeight: "bold"
+    color: WHITE,
+    fontSize: FONT_SIZE_TITLE,
+    fontWeight: 'bold'
   }
 });
 

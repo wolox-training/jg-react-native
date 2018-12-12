@@ -1,8 +1,10 @@
 import { StyleSheet } from 'react-native';
 
+import { PADDING_ITEMS } from '../../constants/styleConst';
+
 const styles = StyleSheet.create({
   container: {
-    paddingTop: 10
+    paddingTop: PADDING_ITEMS
   }
 });
 
