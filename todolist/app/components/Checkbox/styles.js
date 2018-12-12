@@ -19,9 +19,6 @@ const styles = StyleSheet.create({
   },
   removeButton: {
     padding: PADDING_ITEMS
-  },
-  textRemoveButton: {
-    color: RED,
   }
 });
 

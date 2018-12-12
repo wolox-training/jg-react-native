@@ -1,28 +1,25 @@
-import React, { Component } from 'react';
-import { View, ScrollView } from 'react-native';
+import React from 'react';
+import { FlatList } from 'react-native';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import Checkbox from '../Checkbox';
 import styles from './styles';
 
-class List extends Component {
-  getRows = () => {
-    return this.props.items.map((item, index) => (
-      <View
-        key={item.id} >
-        <Checkbox item={item} />
-      </View>
-    ));
-  };
-
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        {this.getRows()}
-      </ScrollView>
-    );
-  }
+function List({ items }) {
+  return (
+    <FlatList
+      style={styles.container}
+      data={items}
+      renderItem={({ item }) => <Checkbox item={item} />}
+      keyExtractor={(item, index) => item.id}
+    />
+  );
 }
+
+const mapStateToProps = store => ({
+  items: store.items
+});
 
 List.propTypes = {
   items: PropTypes.arrayOf(
@@ -34,4 +31,4 @@ List.propTypes = {
   ).isRequired
 };
 
-export default List;
+export default connect(mapStateToProps)(List);

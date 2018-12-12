@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 import { connect } from 'react-redux';
 
+import styles from './styles';
 import { actionCreators } from '../../redux/Todo/actions';
 import { generateId } from '../../utils/numberUtils';
 
 class Input extends Component {
-  state ={
+  state = {
     value: null
   };
 
@@ -21,7 +22,7 @@ class Input extends Component {
     this.setState({ value: null });
   };
 
-  change = value => {
+  changeInputValue = value => {
     this.setState({ value });
   };
 
@@ -31,8 +32,9 @@ class Input extends Component {
       placeholderTextColor="grey"
       value={this.state.value}
       onSubmitEditing={this.submit}
-      onChangeText={this.change}
+      onChangeText={this.changeInputValue}
       blurOnSubmit={false}
+      style={styles.input}
     />;
   }
 }
