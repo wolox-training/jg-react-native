@@ -24,14 +24,18 @@ server.get('/auth', (req, res) => {
       const token = jwt.sign({ user: result }, config.secret, {
         expiresIn: 86400
       });
-      res.status(200).jsonp(token);
+      setTimeout(() => {
+        res.status(200).jsonp(token);
+      }, 3000);
     } else {
-      res.status(404).jsonp('User or password not found');
+      setTimeout(() => {
+        res.status(404).jsonp('User or password not found');
+      }, 3000);
     }
   } else {
-    res.status(400).jsonp({
-      error: 'No valid username or password'
-    });
+    setTimeout(() => {
+      res.status(404).jsonp('No valid username or password');
+    }, 3000);
   }
 });
 
