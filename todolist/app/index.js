@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import { SafeAreaView } from 'react-navigation';
 
 import configureStore from './redux/store';
 import AppScreen from './screens/App';
@@ -10,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <AppScreen />
+          <AppScreen />
       </Provider>
     )
   }
