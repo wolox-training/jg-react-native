@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import routes from '../../constants/routes'
 import Book from './layout';
 
 class BookContainer extends Component {
+
+  handleDetail = () => {
+    const { item, navigate } = this.props;
+    navigate(routes.BookDetail.route, { item });
+  };
+
   render() {
     const { image_url, author, title } = this.props.item;
     return (
@@ -11,6 +18,7 @@ class BookContainer extends Component {
         img={image_url}
         author={author}
         title={title}
+        handleDetail={this.handleDetail}
       />
     );
   }

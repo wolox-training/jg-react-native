@@ -16,4 +16,5 @@ export const ITEM_HEIGHT = 44;
 
 export const ITEM_HEIGHT_BOOK = 60;
 export const ITEM_HEIGHT_IMG_BOOK = 56;
+export const HEIGHT_IMG_BOOK = 250;
 export const RADIUS_IMG_BOOK = 28;

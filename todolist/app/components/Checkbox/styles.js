@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { BLACK, ITEM_HEIGHT, PADDING_ITEMS, RED } from '../../constants/styleConst';
+import { BLACK, ITEM_HEIGHT, PADDING_ITEMS } from '../../constants/styleConst';
 
 const styles = StyleSheet.create({
   container: {

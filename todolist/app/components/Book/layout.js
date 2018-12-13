@@ -4,9 +4,9 @@ import { View, Text, TouchableOpacity, Switch, Image } from 'react-native';
 
 import styles from './styles';
 
-function BookLayout({ img, author, title }) {
+function BookLayout({ img, author, title, handleDetail }) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={handleDetail} >
       {img && <Image style={styles.img} source={{uri: img}} />}
       {!img && <Image style={styles.img} source={require('../../assets/grey_book.png')} />}
       <View style={styles.item}>
