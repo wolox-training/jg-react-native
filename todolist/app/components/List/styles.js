@@ -4,7 +4,10 @@ import { PADDING_ITEMS } from '../../constants/styleConst';
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: PADDING_ITEMS
+    flex: 1
+  },
+  contentContainer: {
+    paddingVertical: PADDING_ITEMS
   }
 });
 

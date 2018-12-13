@@ -1,5 +1,3 @@
-import React from 'react';
-import { SafeAreaView } from 'react-native';
 import { createStackNavigator, createAppContainer, TabNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import Todo from '../Todo'
