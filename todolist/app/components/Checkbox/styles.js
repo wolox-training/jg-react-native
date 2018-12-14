@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
-import { BLACK, ITEM_HEIGHT, PADDING_ITEMS, RED } from '../../constants/styleConst';
+import { black } from '../../constants/colors';
+import { ITEM_HEIGHT, PADDING_ITEMS } from '../../constants/dimensions';
 
 const styles = StyleSheet.create({
   container: {
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   item: {
-    color: BLACK,
+    color: black,
     height: ITEM_HEIGHT,
     padding: PADDING_ITEMS
   },
