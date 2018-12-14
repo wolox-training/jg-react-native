@@ -1,8 +1,9 @@
 import Reactotron from 'reactotron-react-native';
+import { reactotronRedux } from 'reactotron-redux';
 
-export default function config() {
-  Reactotron
-  .configure()
-  .useReactNative()
+const reactotron = Reactotron
+  .configure({ name: 'React Native Demo' })
+  .use(reactotronRedux()) //  <- here i am!
   .connect();
-}
+
+  export default reactotron
