@@ -1,24 +1,27 @@
 import { StyleSheet } from 'react-native';
 
-import { WHITE, HEIGHT_HEADER_FOOTER, FONT_SIZE_FOTTER, RED, BLACK } from '../../constants/styleConst';
+import { black, red, white } from '../../constants/colors';
+import { HEIGHT_HEADER_FOOTER } from '../../constants/dimensions';
+
+const FONT_SIZE_FOTTER = 14;
 
 const styles = StyleSheet.create({
   footer: {
-    backgroundColor: WHITE,
+    backgroundColor: white,
     flexDirection: 'column',
     height: HEIGHT_HEADER_FOOTER,
     shadowOffset:{ width: 0,  height: -3 },
-    shadowColor: BLACK,
+    shadowColor: black,
     shadowOpacity: 0.2,
   },
   footerButton: {
     alignItems: 'center',
-    backgroundColor: WHITE,
+    backgroundColor: white,
     height: HEIGHT_HEADER_FOOTER,
     justifyContent: 'center'
   },
   textFooterButton: {
-    color: RED,
+    color: red,
     fontSize: FONT_SIZE_FOTTER,
     fontWeight: 'bold'
   }

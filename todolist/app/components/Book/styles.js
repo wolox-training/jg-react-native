@@ -1,7 +1,12 @@
 import { StyleSheet } from 'react-native';
 
-import { FONT_SIZE_BOOK, FONT_SIZE_AUTHOR, ITEM_HEIGHT_IMG_BOOK, ITEM_HEIGHT_BOOK,
-  PADDING_ITEMS, RADIUS_IMG_BOOK } from '../../constants/styleConst';
+import { PADDING_ITEMS } from '../../constants/dimensions';
+
+const FONT_SIZE_BOOK = 16;
+const FONT_SIZE_AUTHOR = 12;
+const ITEM_HEIGHT_IMG_BOOK = 56;
+const ITEM_HEIGHT_BOOK = 60;
+const RADIUS_IMG_BOOK = 28;
 
 const styles = StyleSheet.create({
   container: {

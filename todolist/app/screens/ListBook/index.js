@@ -7,7 +7,7 @@ import Book from '../../components/Book';
 
 import books from '../../constants/listBoook';
 
-function App({ navigation }) {
+function BookList({ navigation }) {
   return (
     <View style={styles.container}>
       <List ComponentChild={Book} items={books} navigate={navigation.navigate} />
@@ -15,4 +15,4 @@ function App({ navigation }) {
   );
 };
 
-export default App;
+export default BookList;

@@ -9,7 +9,7 @@ import Input from '../../components/Input';
 import List from '../../components/List';
 import Checkbox from '../../components/Checkbox';
 
-function App({ items }) {
+function TodoList({ items }) {
   return (
     <View style={styles.container}>
       <Input />
@@ -23,7 +23,7 @@ const mapStateToProps = store => ({
   items: store.items
 });
 
-App.propTypes = {
+TodoList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -33,4 +33,4 @@ App.propTypes = {
   ).isRequired
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(TodoList);
