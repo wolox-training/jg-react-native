@@ -10,7 +10,7 @@ function List({ items, ComponentChild }) {
       style={styles.container}
       data={items}
       renderItem={({ item }) => <ComponentChild item={item} />}
-      keyExtractor={(item, index) => item.id}
+      keyExtractor={item => item.id}
     />
   );
 }
