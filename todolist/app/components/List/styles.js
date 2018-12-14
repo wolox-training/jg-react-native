@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { PADDING_ITEMS } from '../../constants/styleConst';
+import { PADDING_ITEMS } from '../../constants/dimensions';
 
 const styles = StyleSheet.create({
   container: {
