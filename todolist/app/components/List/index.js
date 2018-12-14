@@ -12,7 +12,7 @@ function List({ items }) {
       style={styles.container}
       data={items}
       renderItem={({ item }) => <Checkbox item={item} />}
-      keyExtractor={(item, index) => item.id}
+      keyExtractor={item => item.id}
     />
   );
 }

@@ -4,6 +4,8 @@ import { View, Text, TouchableOpacity, Switch, Image } from 'react-native';
 
 import styles from './styles';
 
+const iconRemove = require('../../assets/x_button.png');
+
 function CheckboxLayout({ completed, name, toggleComplete, handleRemove }) {
   return (
     <View style={styles.container}>
@@ -12,7 +14,7 @@ function CheckboxLayout({ completed, name, toggleComplete, handleRemove }) {
         <Switch value={completed} onValueChange={toggleComplete} />
         <TouchableOpacity style={styles.removeButton} onPress={handleRemove}>
           <Image
-            source={require('../../assets/x_button.png')}
+            source={iconRemove}
           />
         </TouchableOpacity>
       </View>

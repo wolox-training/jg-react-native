@@ -3,8 +3,6 @@ import { StyleSheet } from 'react-native';
 import { blue, white } from '../../constants/colors';
 import { HEIGHT_HEADER_FOOTER } from '../../constants/dimensions';
 
-const FONT_SIZE_TITLE = 18;
-
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
@@ -15,7 +13,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: white,
-    fontSize: FONT_SIZE_TITLE,
+    fontSize: 18,
     fontWeight: 'bold'
   }
 });
