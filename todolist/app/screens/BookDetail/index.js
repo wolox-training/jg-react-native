@@ -4,12 +4,13 @@ import Detail from './layout';
 
 class BooKDetail extends Component {
   static navigationOptions = ({ navigation }) => {
+    const item = navigation.getParam('item',{});
     return {
-      title: navigation.state.params.item.title
+      title: item.title
     }
   };
   render() {
-    const { item } = this.props.navigation.state.params;
+    const item = this.props.navigation.getParam('item',{});
     return (
       <Detail item={item} />
     );

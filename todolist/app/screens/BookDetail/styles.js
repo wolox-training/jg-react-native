@@ -1,6 +1,8 @@
 import { StyleSheet } from 'react-native';
 
-import { PADDING_ITEMS, HEIGHT_IMG_BOOK } from '../../constants/styleConst';
+import { PADDING_ITEMS } from '../../constants/dimensions';
+
+const HEIGHT_IMG_BOOK = 250;
 
 const styles = StyleSheet.create({
   container: {
