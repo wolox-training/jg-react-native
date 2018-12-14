@@ -3,8 +3,6 @@ import { StyleSheet } from 'react-native';
 import { black, red, white } from '../../constants/colors';
 import { HEIGHT_HEADER_FOOTER } from '../../constants/dimensions';
 
-const FONT_SIZE_FOTTER = 14;
-
 const styles = StyleSheet.create({
   footer: {
     backgroundColor: white,
@@ -22,7 +20,7 @@ const styles = StyleSheet.create({
   },
   textFooterButton: {
     color: red,
-    fontSize: FONT_SIZE_FOTTER,
+    fontSize: 14,
     fontWeight: 'bold'
   }
 });

@@ -11,7 +11,7 @@ function List({ items, ComponentChild, navigate }) {
       style={styles.container}
       data={items}
       renderItem={({ item }) => <ComponentChild item={item} navigate={navigate} />}
-      keyExtractor={(item, index) => item.id}
+      keyExtractor={item => item.id}
     />
   );
 }
