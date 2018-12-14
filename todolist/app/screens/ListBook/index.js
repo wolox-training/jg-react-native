@@ -8,7 +8,7 @@ import Book from '../../components/Book';
 
 import books from '../../constants/listBoook';
 
-function App() {
+function BookList() {
   return (
     <View style={styles.container}>
       <Title value={'Book List'}/>
@@ -17,4 +17,4 @@ function App() {
   );
 };
 
-export default App;
+export default BookList;
