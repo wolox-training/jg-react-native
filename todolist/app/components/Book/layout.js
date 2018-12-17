@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, Switch, Image } from 'react-native';
 
 import styles from './styles';
 
-const iconNotImg = require('../../assets/grey_book.png');
+import iconNotImg from '../../assets/grey_book.png';
 
 function Book({ img, author, title }) {
   return (
