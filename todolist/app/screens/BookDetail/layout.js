@@ -8,7 +8,7 @@ import Info from '../../components/Info';
 function Detail({ item }) {
   return (
     <ScrollView style={styles.container}>
-      {item.image_url && <Image   style={styles.img} source={{uri: item.image_url}} />}
+      {item.image_url && <Image style={styles.img} source={{uri: item.image_url}} />}
       <View style={styles.containerInfo}>
         <Info title={'Author'} value={item.author} />
         <Info title={'Genre'} value={item.genre} />

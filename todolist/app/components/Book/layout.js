@@ -4,9 +4,9 @@ import { View, Text, TouchableOpacity, Switch, Image } from 'react-native';
 
 import styles from './styles';
 
-const iconNotImg = require('../../assets/grey_book.png');
+import iconNotImg from '../../assets/grey_book.png';
 
-function BookLayout({ img, author, title, handleDetail }) {
+function Book({ img, author, title, handleDetail }) {
   return (
     <TouchableOpacity style={styles.container} onPress={handleDetail} >
       {<Image style={styles.img} source={img ? {uri: img}: iconNotImg} />}
@@ -18,10 +18,10 @@ function BookLayout({ img, author, title, handleDetail }) {
   );
 }
 
-BookLayout.propTypes = {
+Book.propTypes = {
   img: PropTypes.string,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired
 };
 
-export default BookLayout;
+export default Book;

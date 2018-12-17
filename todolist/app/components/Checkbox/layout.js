@@ -4,9 +4,9 @@ import { View, Text, TouchableOpacity, Switch, Image } from 'react-native';
 
 import styles from './styles';
 
-const iconRemove = require('../../assets/x_button.png');
+import iconRemove from '../../assets/x_button.png';
 
-function CheckboxLayout({ completed, name, toggleComplete, handleRemove }) {
+function Checkbox({ completed, name, toggleComplete, handleRemove }) {
   return (
     <View style={styles.container}>
       <Text style={styles.item}>{name}</Text>
@@ -22,11 +22,11 @@ function CheckboxLayout({ completed, name, toggleComplete, handleRemove }) {
   );
 }
 
-CheckboxLayout.propTypes = {
+Checkbox.propTypes = {
   completed: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   toggleComplete: PropTypes.func.isRequired,
   handleRemove: PropTypes.func.isRequired
 };
 
-export default CheckboxLayout;
+export default Checkbox;
