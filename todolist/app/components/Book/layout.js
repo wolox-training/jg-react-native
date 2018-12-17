@@ -6,7 +6,7 @@ import styles from './styles';
 
 const iconNotImg = require('../../assets/grey_book.png');
 
-function BookLayout({ img, author, title }) {
+function Book({ img, author, title }) {
   return (
     <TouchableOpacity style={styles.container}>
       {<Image style={styles.img} source={img ? {uri: img}: iconNotImg} />}
@@ -18,10 +18,10 @@ function BookLayout({ img, author, title }) {
   );
 }
 
-BookLayout.propTypes = {
+Book.propTypes = {
   img: PropTypes.string,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired
 };
 
-export default BookLayout;
+export default Book;
