@@ -4,7 +4,7 @@ import { View, Text, TouchableOpacity, Switch, Image } from 'react-native';
 
 import styles from './styles';
 
-const iconRemove = require('../../assets/x_button.png');
+import iconRemove from '../../assets/x_button.png';
 
 function Checkbox({ completed, name, toggleComplete, handleRemove }) {
   return (
