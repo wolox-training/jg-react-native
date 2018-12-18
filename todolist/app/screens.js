@@ -1,7 +1,7 @@
-import { createStackNavigator, createAppContainer, TabNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
 
-import Todo from '../Todo'
-import ListBook from '../ListBook';
+import Todo from './screens/Todo'
+import ListBook from './screens/ListBook';
 
 const Tabs = createBottomTabNavigator({
   Todo: {
