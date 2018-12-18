@@ -6,9 +6,9 @@ import styles from './styles';
 
 import iconNotImg from '../../assets/grey_book.png';
 
-function Book({ img, author, title }) {
+function Book({ img, author, title, handleDetail }) {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={handleDetail} >
       {<Image style={styles.img} source={img ? {uri: img}: iconNotImg} />}
       <View style={styles.item}>
         <Text style={styles.title}>{ title }</Text>
